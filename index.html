@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>252425 Homelab</title>
+    <!-- Standard-Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" sizes="32x32" href="favicon-32x32.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="favicon-16x16.png" type="image/png">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --header-bg: #1f1f1f;
+            --card-bg: #1f1f1f;
+            --text-color: #e0e0e0;
+            --button-bg: #2a2a2a;
+            --button-hover: #3a3a3a;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --footer-bg: #1a1a1a;
+            --title-gradient-start: #ffffff;
+            --title-gradient-end: #a0a0a0;
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f5f5f5;
+            --header-bg: #ffffff;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --button-bg: #f0f0f0;
+            --button-hover: #e0e0e0;
+            --border-color: rgba(0, 0, 0, 0.1);
+            --footer-bg: #e0e0e0;
+            --title-gradient-start: #333333;
+            --title-gradient-end: #666666;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            background: linear-gradient(to bottom, var(--header-bg), var(--bg-color));
+            color: var(--text-color);
+            text-align: center;
+            padding: 1.5rem 1rem;
+        }
+        header h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--title-gradient-start), var(--title-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            margin: 0.5rem auto;
+            max-width: 800px;
+            padding: 0 1rem;
+            line-height: 1.4;
+        }
+        section {
+            padding: 1.5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        section h2 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            margin-bottom: 1rem;
+            text-align: center;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+        @media (min-width: 600px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0;
+            }
+        }
+        @media (min-width: 900px) {
+            .cards-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 1.2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .card h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .card p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        .card a {
+            display: block;
+            margin: 0.3rem auto;
+            padding: 0.6rem 1rem;
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 200px;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+        .card a:hover {
+            background-color: var(--button-hover);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: var(--footer-bg);
+            color: var(--text-color);
+            margin-top: auto;
+            border-top: 1px solid var(--border-color);
+        }
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            align-items: center;
+        }
+        .footer-content p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            margin: 0;
+            color: var(--text-color);
+        }
+        .footer-email {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1px;
+            transition: all 0.3s ease;
+        }
+        .footer-email:hover {
+            color: var(--button-hover);
+            border-bottom-color: var(--button-hover);
+        }
+        .footer-logo {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 0.5rem;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            margin-left: 1rem;
+        }
+        .footer-logo:hover {
+            opacity: 1;
+        }
+        @media (min-width: 600px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: center;
+                gap: 2rem;
+            }
+            .footer-logo {
+                margin-bottom: 0;
+                margin-right: 0;
+                margin-left: 2rem;
+            }
+        }
+        .theme-switch {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: var(--button-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .theme-switch:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .theme-switch svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--text-color);
+        }
+        header img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
+        <svg id="themeIcon" viewBox="0 0 24 24">
+            <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
+        </svg>
+    </div>
+    <header>
+        <div style="text-align: center; margin: 20px;">
+            <img src="banner.jpeg" alt="Beschreibung des Bildes" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+        </div>
+        <h1>Willkommen in meinem 252425 Homelab</h1>
+        <p>Dies ist mein persönliches Projekt, in dem ich mit verschiedenen Technologien experimentiere und mein Wissen erweitere. Schau dir die verschiedenen Dienste und Tools an, die ich hier betreibe.</p>
+    </header>
+
+    <section>
+        <h2>Meine Homelabdienste</h2>
+        <div class="cards-container">
+            <div class="card">
+                <h3>NextCloud</h3>
+                <p>Private Cloud für Dateien und Zusammenarbeit.</p>
+                <a href="https://mynextcloud.252425.xyz" target="_blank">Zur NextCloud</a>
+            </div>
+            <div class="card">
+                <h3>AI</h3>
+                <p>Lokale KI, die 24/7 verfügbar ist. Eher geeignet, um eine private, lokale KI zu nutzen.</p>
+                <a href="https://ai.252425.xyz" target="_blank">Zur AI</a>
+            </div>
+            <div class="card">
+                <h3>Super AI</h3>
+                <p>Für aufwändige Aufgaben. Nicht 24/7 online, aber sehr leistungsfähig für komplexe Prozesse.</p>
+                <a href="https://superai.252425.xyz" target="_blank">Zur Super AI</a>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Meine Projekte</h2>
+        <div class="cards-container">
+            <div class="card">
+                <h3>Hacking Escape Room</h3>
+                <p>Ein interaktiver Escape Room, bei dem du deine Hacking- und Problemlösungsfähigkeiten testen kannst.</p>
+                <p><strong>Jahr:</strong> 2024</p>
+                <a href="https://hackingescaperoom.tech" target="_blank">Zur Webseite</a>
+                <a href="https://riddle.hackingescaperoom.tech" target="_blank">Riddle</a>
+                <a href="https://github.com/HackingEscapeRoom/Hacking-Escape-Room" target="_blank">GitHub</a>
+            </div>
+
+            <div class="card">
+                <h3>A-Ultra Website</h3>
+                <p>A-Ultra ist der YouTube-Kanal für Technik-Tipps und Schritt-für-Schritt-Anleitungen. Hier findest du einfache Lösungen zu verschiedenen Technik-Themen, ideal für alle, die mehr über Smartphones, Controller und barrierefreie Funktionen erfahren möchten. Diese Inhalte werden bald auch auf einer Webseite verfügbar sein, um noch mehr Menschen zu erreichen.</p>
+                <p><strong>Preview</strong></p>
+                <a href="https://aultra.252425.xyz" target="_blank">zur Webseite</a>
+                <a href="https://github.com/A-Ultra/A-Ultra-Website" target="_blank">GitHub</a>
+            </div>
+
+            <div class="card">
+                <h3>Homelab</h3>
+                <p>Mein Homelab, in dem ich verschiedene Technologien und Projekte teste, entwickle und implementiere.</p>
+                <a href="https://github.com/Anes-03/Homelab" target="_blank">GitHub</a>
+            </div>
+
+            <div class="card">
+                <h3>Escape Room: The Picture of Dorian Gray</h3>
+                <p>Ein Escape Room basierend auf "The Picture of Dorian Gray". Löst Rätsel, die mit der Geschichte des Buches verbunden sind, um zu entkommen.</p>
+                <p><strong>Jahr:</strong> 2022</p>
+                <a href="https://github.com/Anes-03/Escape-Room-The-Picture-of-Dorian-Gray" target="_blank">GitHub</a>
+                <a href="https://anes-03.github.io/Escape-Room-The-Picture-of-Dorian-Gray/" target="_blank">Riddle 1</a>
+                <a href="https://anes-03.github.io/Escape-Room-The-Picture-of-Dorian-Gray/2r2hinweis" target="_blank">Riddle 5</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <img src="Ohne Titel 2/Ohne Titel 2.001.jpeg" alt="252425 Logo" class="footer-logo">
+            <p>© 2025 252425 Homelab</p>
+            <p>Kontakt: <a href="mailto:info@252425.xyz" class="footer-email">info@252425.xyz</a></p>
+        </div>
+    </footer>
+    <script>
+        // Theme-Switch Logik
+        const themeSwitch = document.getElementById('themeSwitch');
+        const themeIcon = document.getElementById('themeIcon');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Initiales Theme basierend auf Systemeinstellungen
+        function setInitialTheme() {
+            if (prefersDarkScheme.matches) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }
+
+        // Theme wechseln
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        }
+
+        // Theme aus Local Storage laden
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        } else {
+            setInitialTheme();
+        }
+
+        // Event Listener
+        themeSwitch.addEventListener('click', toggleTheme);
+        prefersDarkScheme.addListener(setInitialTheme);
+    </script>
+</body>
+</html>
