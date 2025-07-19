@@ -211,6 +211,151 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* FAQ Verbesserungen */
+        .card details {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .card details:hover {
+            background-color: var(--button-hover);
+            transform: translateX(5px);
+        }
+
+        .card details[open] {
+            background-color: var(--button-hover);
+            border-left: 3px solid var(--text-color);
+        }
+
+        .card details summary {
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-color);
+            position: relative;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card details summary:hover {
+            background-color: var(--button-bg);
+        }
+
+        .card details summary::before {
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 0.5rem;
+            transition: transform 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .card details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .card details summary::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.8rem;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .card details[open] summary::after {
+            transform: rotate(180deg);
+            opacity: 1;
+        }
+
+        .card details p {
+            padding: 0 1rem 1rem 1rem;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-color);
+            opacity: 0.9;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .card details a {
+            color: var(--text-color);
+            text-decoration: underline;
+            transition: all 0.3s ease;
+        }
+
+        .card details a:hover {
+            color: var(--button-hover);
+            text-decoration: none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 0.9;
+                transform: translateY(0);
+            }
+        }
+
+        /* Verbesserte Card-Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: auto;
+            min-height: 300px;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .card h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+            text-align: center;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 600px) {
+            .card details summary {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+            
+            .card details p {
+                font-size: 0.85rem;
+                padding: 0 0.8rem 0.8rem 0.8rem;
+            }
+            
+            .card {
+                padding: 1.2rem;
+                min-height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -252,6 +397,18 @@
                     <p>Klar! Ich teile Hardware-Listen und Tutorials. Bedenke aber, dass sich Strom-,
                        Geraeusch- und Platzbedarf bei jedem unterscheiden.</p>
                 </details>
+                <details>
+                    <summary>Wie kann ich auf die verschiedenen Dienste zugreifen?</summary>
+                    <p>Die Links zu allen Diensten findest du auf der Startseite. Einige Dienste sind oeffentlich, 
+                       andere erfordern einen Zugang. Die 252425 Cloud und KI-Dienste sind ueber die entsprechenden 
+                       Links erreichbar.</p>
+                </details>
+                <details>
+                    <summary>Was ist das Ziel deines Homelabs?</summary>
+                    <p>Hauptsaechlich das Experimentieren mit neuen Technologien, das Erweitern meines Wissens 
+                       und das Teilen von Erfahrungen mit der Community. Es dient als Lernumgebung und 
+                       Testumgebung fuer verschiedene Projekte.</p>
+                </details>
             </div>
             <!-- Hardware -->
             <div class="card">
@@ -271,6 +428,18 @@
                     <p>Zentraler 10 GbE-Switch von Mikrotik, dazu einige 2.5 GbE PoE-Switches fuer APs und
                        IP-Kameras. Backbone ist Glasfaser OM4.</p>
                 </details>
+                <details>
+                    <summary>Warum verschiedene Hardware (PC, iMac, Raspberry Pi)?</summary>
+                    <p>Unterschiedliche Aufgaben erfordern unterschiedliche Hardware – von stromsparend bis leistungsstark. 
+                       Der Raspberry Pi 5 betreibt die 252425 Cloud, der iMac die stromsparende KI und der PC die 
+                       leistungsstarke KI fuer komplexe Aufgaben.</p>
+                </details>
+                <details>
+                    <summary>Wie sieht dein Netzwerk aus?</summary>
+                    <p>Das Netzwerk basiert auf Glasfaser-Backbone, 10GbE-Switches und ist durch VPN und 
+                       Zero Trust abgesichert. Cloudflare Tunnel ermoeglicht sicheren Remote-Zugang, 
+                       Tailscale sorgt fuer VPN-Verbindungen.</p>
+                </details>
             </div>
             <!-- Software -->
             <div class="card">
@@ -288,6 +457,45 @@
                     <p>Ja, die wichtigsten Rollen sind auf GitHub unter
                        <a href="https://github.com/aultra-de" target="_blank">aultra-de</a> oeffentlich.</p>
                 </details>
+                <details>
+                    <summary>Wo werden meine Daten gespeichert, wenn ich die Cloud nutze?</summary>
+                    <p>Alle Daten werden ausschliesslich lokal in meinem Homelab gespeichert – keine Cloud-Dienste 
+                       von Drittanbietern. Die 252425 Cloud basiert auf NextCloud und bietet maximale 
+                       Datensicherheit und Privatsphaere.</p>
+                </details>
+                <details>
+                    <summary>Wie sicher sind meine Daten?</summary>
+                    <p>Es werden regelmaessige Backups und moderne Verschluesselungstechniken eingesetzt, 
+                       um maximale Sicherheit zu gewaehrleisten. Alle Dienste sind durch Cloudflare Zero Trust 
+                       und Tailscale VPN abgesichert.</p>
+                </details>
+            </div>
+            <!-- KI & Automatisierung -->
+            <div class="card">
+                <h3><i class="fas fa-brain"></i> KI &amp; Automatisierung</h3>
+                <details>
+                    <summary>Welche KI-Modelle werden verwendet?</summary>
+                    <p>Es kommen verschiedene lokale KI-Modelle zum Einsatz, je nach Anwendungsfall 
+                       (z. B. Text, Bild, Sprache). Die stromsparende KI laeuft 24/7, die leistungsstarke 
+                       KI nur bei Bedarf.</p>
+                </details>
+                <details>
+                    <summary>Kann ich die KI-Dienste auch selbst hosten?</summary>
+                    <p>Ja, die meisten Tools sind Open Source. Gerne gebe ich Tipps zum eigenen Setup 
+                       und teile Erfahrungen mit der Community.</p>
+                </details>
+                <details>
+                    <summary>Was kann ich mit Home Assistant steuern?</summary>
+                    <p>Licht, Heizung, Sicherheitssysteme und viele weitere Smart-Home-Geraete lassen sich 
+                       zentral steuern und automatisieren. Home Assistant dient als zentrale Plattform 
+                       fuer die Integration verschiedener Geraete und Dienste.</p>
+                </details>
+                <details>
+                    <summary>Wie funktioniert die Automatisierung mit n8n?</summary>
+                    <p>Mit n8n koennen Workflows zwischen verschiedenen Diensten ohne Programmierkenntnisse 
+                       erstellt werden. Es verbindet verschiedene Anwendungen und ermoeglicht komplexe 
+                       Automatisierungen.</p>
+                </details>
             </div>
             <!-- Content / Community -->
             <div class="card">
@@ -304,8 +512,18 @@
                 </details>
                 <details>
                     <summary>Wie kann ich dich am besten erreichen?</summary>
-                    <p>Entweder via <a href="mailto:info@252425.xyz">E-Mail</a> oder über das
+                    <p>Entweder via <a href="mailto:info@252425.xyz">E-Mail</a> oder ueber das
                        <a href="/kontakt.html">Kontaktformular</a>. Ich antworte meist innerhalb von 48 h.</p>
+                </details>
+                <details>
+                    <summary>Wie kann ich bei Projekten mitmachen?</summary>
+                    <p>Ueber GitHub kannst du dich an Open-Source-Projekten beteiligen oder Feedback geben. 
+                       Alle Projekte sind oeffentlich und freuen sich ueber Beitraege und Verbesserungsvorschlaege.</p>
+                </details>
+                <details>
+                    <summary>Gibt es eine Moeglichkeit, dich zu unterstuetzen?</summary>
+                    <p>Ja, durch Teilen der Inhalte, Feedback oder Mitwirkung an Projekten. Auch das 
+                       Weiterempfehlen der Dienste und Projekte hilft der Community.</p>
                 </details>
             </div>
         </div>
