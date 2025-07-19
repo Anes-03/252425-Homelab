@@ -1,0 +1,115 @@
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.footer-content p {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+    margin: 0;
+    color: var(--text-color);
+}
+
+.footer-email {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-email:hover {
+    color: var(--button-hover);
+}
+
+.footer-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    margin-left: 1rem;
+}
+
+.footer-logo:hover {
+    opacity: 1;
+}
+
+/* Social Media Styles */
+.social-media {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-icons p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.social-icons a {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+    color: var(--button-hover);
+}
+
+/* Responsive Styles */
+@media (min-width: 600px) {
+    .footer-content {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    
+    .social-media {
+        margin-top: 0;
+        margin-left: 2rem;
+    }
+
+    .footer-logo {
+        margin-bottom: 0;
+        margin-right: 0;
+        margin-left: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .theme-switch {
+        bottom: 80px;
+    }
+    
+    .social-icons {
+        padding-bottom: 20px;
+    }
+} 
