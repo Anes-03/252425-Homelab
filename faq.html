@@ -100,7 +100,7 @@
         }
         .cards-container {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 1rem;
             width: 100%;
             max-width: 1200px;
@@ -110,14 +110,18 @@
         }
         @media (min-width: 600px) {
             .cards-container {
-                grid-template-columns: repeat(2, 1fr);
                 gap: 1.5rem;
                 padding: 0;
             }
         }
-        @media (min-width: 900px) {
-            .cards-container {
-                grid-template-columns: repeat(3, 1fr);
+        @media (max-width: 600px) {
+            .card {
+                min-height: 180px;
+            }
+        }
+        @media (max-width: 400px) {
+            .card {
+                min-height: 120px;
             }
         }
         .card {
@@ -355,13 +359,110 @@
                 padding: 1.2rem;
                 min-height: 250px;
             }
+            header {
+                padding: 1rem 0.5rem;
+            }
+            section {
+                padding: 1rem 0.5rem;
+            }
+            .cards-container {
+                padding: 0;
+                gap: 1rem;
+            }
+        }
+        /* Zusätzliche Optimierung für sehr kleine Bildschirme */
+        @media (max-width: 400px) {
+            body, html {
+                font-size: 14px;
+            }
+            header h1 {
+                font-size: 1.1rem;
+            }
+            section h2 {
+                font-size: 1rem;
+            }
+            .card {
+                padding: 0.7rem;
+                min-height: 180px;
+            }
+            .card h3 {
+                font-size: 1rem;
+                padding-bottom: 0.3rem;
+            }
+            .theme-switch {
+                width: 38px;
+                height: 38px;
+            }
+            .theme-switch svg {
+                width: 20px;
+                height: 20px;
+            }
+        }
+        /* Verhindere horizontales Scrollen */
+        html, body {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        /* ASCII-Art nur auf großen Bildschirmen anzeigen */
+        .ascii-desktop {
+            display: block;
+            font-size: 0.85em;
+        }
+        @media (max-width: 1200px) {
+            .ascii-desktop {
+                font-size: 0.7em;
+            }
+        }
+        @media (max-width: 900px) {
+            .ascii-desktop {
+                font-size: 0.55em;
+            }
+        }
+        @media (max-width: 700px) {
+            .ascii-desktop {
+                display: none;
+            }
+            .ascii-mobile {
+                display: block;
+            }
+        }
+        @media (max-width: 600px) {
+            .ascii-desktop {
+                font-size: 0.32em;
+            }
+        }
+        .ascii-mobile {
+            display: none;
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--text-color);
+        }
+        @media (max-width: 900px) {
+            .ascii-desktop {
+                display: none;
+            }
+            .ascii-mobile {
+                display: block;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Navbar -->
     <div id="navbar-placeholder"></div>
-    
+    <pre class="ascii-desktop" style="font-family: monospace; font-size: 0.85em; text-align: center; color: var(--text-color); margin: 20px 0;">
+ _______ _______ _______   ___ _______ _______            _______ _______ _______ _       _______ ______     _______ _______ _______ 
+/ ___   (  ____ / ___   ) /   / ___   (  ____ \  |\     /(  ___  (       (  ____ ( \     (  ___  (  ___ \   (  ____ (  ___  (  ___  )
+\/   )  | (    \/   )  |/ /) \/   )  | (    \/  | )   ( | (   ) | () () | (    \| (     | (   ) | (   ) )  | (    \| (   ) | (   ) |
+    /   | (____     /   / (_) (_  /   | (____    | (___) | |   | | || || | (__   | |     | (___) | (__/ /   | (__   | (___) | |   | |
+  _/   /(_____ \  _/   (____   __/   /(_____ \   |  ___  | |   | | |(_)| |  __)  | |     |  ___  |  __ (    |  __)  |  ___  | |   | |
+ /   _/       ) )/   _/     ) (/   _/       ) )  | (   ) | |   | | |   | | (     | |     | (   ) | (  \ \   | (     | (   ) | | /\| |
+(   (__//\____) (   (__/\   | (   (__//\____) )  | )   ( | (___) | )   ( | (____/| (____/| )   ( | )___) )  | )     | )   ( | (_\ \ |
+\_______\______/\_______/   (_\_______\______/   |/     \(_______|/     \(_______(_______|/     \|/ \___/   |/      |/     \(____\/_)
+                                                                                                                                    
+    </pre>
+    <div class="ascii-mobile">252425 Homelab – FAQ</div>
     <!-- Theme-Switch -->
     <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
         <svg id="themeIcon" viewBox="0 0 24 24">
@@ -384,13 +485,12 @@
                 <h3><i class="fas fa-circle-info"></i> Allgemein</h3>
                 <details>
                     <summary>Was ist das 252425 Homelab?</summary>
-                    <p>Ein privates Lab-Netzwerk, in dem ich Hardware teste, Services betreibe und Content dafuer
-                       erstelle. Es dient als Spielwiese fuer neue Technologien.</p>
+                    <p>Ein privates Lab-Netzwerk, in dem ich Hardware teste und Services betreibe. Es dient als Spielwiese für neue Technologien.</p>
                 </details>
                 <details>
                     <summary>Warum heisst es 252425?</summary>
-                    <p>Die Zahl ist eine Kombination persoenlicher Lieblingszahlen und dient als wiedererkennbares
-                       Branding – ganz ohne tiefere Bedeutung.</p>
+                    <p>Die Zahl ist eine Kombination aus den Jahreszahlen 2024 und 2025 und dient als wiedererkennbares
+                       Branding.</p>
                 </details>
                 <details>
                     <summary>Kann ich dein Setup nachbauen?</summary>
@@ -399,73 +499,78 @@
                 </details>
                 <details>
                     <summary>Wie kann ich auf die verschiedenen Dienste zugreifen?</summary>
-                    <p>Die Links zu allen Diensten findest du auf der Startseite. Einige Dienste sind oeffentlich, 
-                       andere erfordern einen Zugang. Die 252425 Cloud und KI-Dienste sind ueber die entsprechenden 
-                       Links erreichbar.</p>
+                    <p>Die Links zu allen Diensten findest du auf der Startseite. Einige Dienste sind öffentlich, 
+                       andere erfordern einen Zugang. Die Dienste sind für den privaten Gebrauch gedacht und nicht für den kommerziellen Einsatz.</p>
                 </details>
                 <details>
                     <summary>Was ist das Ziel deines Homelabs?</summary>
                     <p>Hauptsaechlich das Experimentieren mit neuen Technologien, das Erweitern meines Wissens 
                        und das Teilen von Erfahrungen mit der Community. Es dient als Lernumgebung und 
-                       Testumgebung fuer verschiedene Projekte.</p>
+                       Testumgebung für verschiedene Projekte.</p>
                 </details>
             </div>
             <!-- Hardware -->
             <div class="card">
                 <h3><i class="fas fa-server"></i> Hardware &amp; Infrastruktur</h3>
                 <details>
-                    <summary>Welche Server nutzt du aktuell?</summary>
-                    <p>Momentan laufen zwei Dell R730XD fuer Storage und Proxmox-VMs sowie ein Intel NUC als
-                       Low-Power-Node fuer 24/7-Dienste.</p>
-                </details>
-                <details>
-                    <summary>Wie hoch ist dein Stromverbrauch?</summary>
-                    <p>Im Idle liegen alle Nodes zusammen bei rund 120 W. Unter Last kann das bis zu 450 W steigen.
-                       Durch Optimierung (z. B. CPU P-States) spare ich ca. 30 % gegenueber default.</p>
-                </details>
-                <details>
-                    <summary>Welche Netzwerktechnik setzt du ein?</summary>
-                    <p>Zentraler 10 GbE-Switch von Mikrotik, dazu einige 2.5 GbE PoE-Switches fuer APs und
-                       IP-Kameras. Backbone ist Glasfaser OM4.</p>
+                    <summary>Welche Server & Hardware nutzt du aktuell?</summary>
+                    <ul>
+                      <li><strong>PC (Super AI):</strong> RTX 4060 Ti, AMD Ryzen 5 5600, 32 GB RAM, 1 TB Speicher</li>
+                      <li><strong>iMac (KI):</strong> Apple M1, 16 GB RAM, 1 TB Speicher</li>
+                      <li><strong>Raspberry Pi 5 (252425 Cloud):</strong> 4 GB RAM, 2 TB Speicher</li>
+                    </ul>
+                    <p><strong>Geplante Erweiterungen:</strong></p>
+                    <ul>
+                      <li><strong>Mac mini:</strong> Apple M4, 16 GB RAM, 256 GB Speicher</li>
+                      <li><strong>Apple TV 4K (2017):</strong> A10X Fusion, 64 GB Speicher</li>
+                      <li><strong>Raspberry Pi 4:</strong> 4 GB RAM</li>
+                    </ul>
                 </details>
                 <details>
                     <summary>Warum verschiedene Hardware (PC, iMac, Raspberry Pi)?</summary>
-                    <p>Unterschiedliche Aufgaben erfordern unterschiedliche Hardware – von stromsparend bis leistungsstark. 
+                    <p>Unterschiedliche Aufgaben erfordern unterschiedliche Hardware von stromsparend bis leistungsstark. 
                        Der Raspberry Pi 5 betreibt die 252425 Cloud, der iMac die stromsparende KI und der PC die 
-                       leistungsstarke KI fuer komplexe Aufgaben.</p>
+                       leistungsstarke KI fuer komplexe Aufgaben. Die verschiedenen Hardware bringt mehr Diversität in meinem Setup.</p>
                 </details>
                 <details>
                     <summary>Wie sieht dein Netzwerk aus?</summary>
-                    <p>Das Netzwerk basiert auf Glasfaser-Backbone, 10GbE-Switches und ist durch VPN und 
+                    <p>Das Netzwerk basiert auf Glasfaser-Backbone und wird durch VPN und 
                        Zero Trust abgesichert. Cloudflare Tunnel ermoeglicht sicheren Remote-Zugang, 
-                       Tailscale sorgt fuer VPN-Verbindungen.</p>
+                       Tailscale sorgt für VPN-Verbindungen.</p>
                 </details>
             </div>
             <!-- Software -->
             <div class="card">
                 <h3><i class="fas fa-code"></i> Software &amp; Dienste</h3>
                 <details>
-                    <summary>Welche Virtualisierungsplattform nutzt du?</summary>
-                    <p>Proxmox VE auf allen Hosts. Container laufen in LXC, spezielle Workloads in KVM-VMs.</p>
+                    <summary>Welche Software & Hardware nutzt du?</summary>
+                    <p><strong>Software & Dienste:</strong></p>
+                    <ul>
+                      <li><strong>Docker</strong> (Container Management)</li>
+                      <li><strong>Nextcloud</strong> (Cloud-Speicher)</li>
+                      <li><strong>Lokale KI-Modelle</strong></li>
+                      <li><strong>GitHub Pages</strong> (Projekthosting)</li>
+                      <li><strong>Cloudflare Tunnel</strong> (Remote-Zugang)</li>
+                      <li><strong>Tailscale</strong> (VPN)</li>
+                      <li><strong>Moonlight mit Sunshine</strong> (PC-Game-Streaming vom Homelab aus)</li>
+                    </ul>
+                    <p><strong>Geplante Software-Erweiterungen:</strong></p>
+                    <ul>
+                      <li><strong>Home Assistant</strong> (Home Automation)</li>
+                      <li><strong>n8n</strong> (Workflow-Automatisierung)</li>
+                    </ul>
                 </details>
+                
+                
                 <details>
-                    <summary>Wie sicherst du deine Daten?</summary>
-                    <p>ZFS Snapshots lokal + woechentliche Off-Site-Backups via Restic zu Backblaze B2.</p>
-                </details>
-                <details>
-                    <summary>Kann ich deine Ansible-Playbooks sehen?</summary>
-                    <p>Ja, die wichtigsten Rollen sind auf GitHub unter
-                       <a href="https://github.com/aultra-de" target="_blank">aultra-de</a> oeffentlich.</p>
-                </details>
-                <details>
-                    <summary>Wo werden meine Daten gespeichert, wenn ich die Cloud nutze?</summary>
-                    <p>Alle Daten werden ausschliesslich lokal in meinem Homelab gespeichert – keine Cloud-Dienste 
+                    <summary>Wo werden die Daten gespeichert, wenn ich die Cloud nutze?</summary>
+                    <p>Alle Daten werden ausschliesslich lokal in meinem Homelab gespeichert, keine Cloud-Dienste 
                        von Drittanbietern. Die 252425 Cloud basiert auf NextCloud und bietet maximale 
                        Datensicherheit und Privatsphaere.</p>
                 </details>
                 <details>
                     <summary>Wie sicher sind meine Daten?</summary>
-                    <p>Es werden regelmaessige Backups und moderne Verschluesselungstechniken eingesetzt, 
+                    <p>Es werden moderne Verschluesselungstechniken eingesetzt, 
                        um maximale Sicherheit zu gewaehrleisten. Alle Dienste sind durch Cloudflare Zero Trust 
                        und Tailscale VPN abgesichert.</p>
                 </details>
@@ -481,8 +586,7 @@
                 </details>
                 <details>
                     <summary>Kann ich die KI-Dienste auch selbst hosten?</summary>
-                    <p>Ja, die meisten Tools sind Open Source. Gerne gebe ich Tipps zum eigenen Setup 
-                       und teile Erfahrungen mit der Community.</p>
+                    <p>Ja, die meisten Tools sind Open Source.</p>
                 </details>
                 <details>
                     <summary>Was kann ich mit Home Assistant steuern?</summary>
@@ -501,29 +605,14 @@
             <div class="card">
                 <h3><i class="fas fa-people-group"></i> Content &amp; Community</h3>
                 <details>
-                    <summary>Wann erscheinen neue Videos?</summary>
-                    <p>Ich versuche, alle zwei Wochen etwas zu veroeffentlichen. Bei groesseren Projekten kann es
-                       laenger dauern.</p>
-                </details>
-                <details>
-                    <summary>Darf ich deine Bilder / Grafiken nutzen?</summary>
-                    <p>Fuer private, nichtkommerzielle Zwecke ja – bitte mit Credit. Bei kommerzieller Nutzung
-                       vorher anfragen.</p>
-                </details>
-                <details>
                     <summary>Wie kann ich dich am besten erreichen?</summary>
                     <p>Entweder via <a href="mailto:info@252425.xyz">E-Mail</a> oder ueber das
                        <a href="/kontakt.html">Kontaktformular</a>. Ich antworte meist innerhalb von 48 h.</p>
                 </details>
                 <details>
                     <summary>Wie kann ich bei Projekten mitmachen?</summary>
-                    <p>Ueber GitHub kannst du dich an Open-Source-Projekten beteiligen oder Feedback geben. 
-                       Alle Projekte sind oeffentlich und freuen sich ueber Beitraege und Verbesserungsvorschlaege.</p>
-                </details>
-                <details>
-                    <summary>Gibt es eine Moeglichkeit, dich zu unterstuetzen?</summary>
-                    <p>Ja, durch Teilen der Inhalte, Feedback oder Mitwirkung an Projekten. Auch das 
-                       Weiterempfehlen der Dienste und Projekte hilft der Community.</p>
+                    <p>Über GitHub kannst du dich an Open-Source-Projekten beteiligen oder Feedback geben. 
+                       Alle Projekte sind öffentlich und freuen sich über Beiträge und Verbesserungsvorschlaege.</p>
                 </details>
             </div>
         </div>
