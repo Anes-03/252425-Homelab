@@ -16,22 +16,6 @@
 - JavaScript (für Theme-Switch und dynamische Inhalte)
 - [Font Awesome](https://fontawesome.com/) für Icons
 
-## Installation
-
-1. Repository klonen:
-   ```bash
-   git clone <repository-url>
-   ```
-2. Projektordner öffnen und die `index.html` im Browser starten.
-
-Es ist kein Build-Prozess oder Server notwendig – alles läuft statisch im Browser.
-
-## Nutzung
-
-- Passe die Inhalte in den HTML-Dateien (`index.html`, `kontakt.html`, etc.) nach deinen Wünschen an.
-- Die Styles können in den CSS-Dateien (`styles.css`, `footer.css`, `navbar.css`) geändert werden.
-- Für eigene Projekte oder Kontaktmöglichkeiten einfach die entsprechenden Abschnitte editieren.
-
 ## Kontakt
 
 Fragen, Feedback oder Anregungen? Nutze das Kontaktformular auf der Webseite oder schreibe eine E-Mail an info@252425.xyz.
