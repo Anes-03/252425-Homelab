@@ -299,6 +299,11 @@
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
+        @media (max-width: 600px) {
+            .theme-switch {
+                bottom: 80px;
+            }
+        }
         .theme-switch svg {
             width: 28px;
             height: 28px;
@@ -408,7 +413,7 @@
         setInitialTheme();
       }
       themeSwitch.addEventListener('click', toggleTheme);
-      prefersDarkScheme.addEventListener('change', setInitialTheme);
+      prefersDarkScheme.addListener(setInitialTheme);
     });
     </script>
 

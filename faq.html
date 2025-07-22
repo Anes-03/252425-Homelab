@@ -369,6 +369,9 @@
                 padding: 0;
                 gap: 1rem;
             }
+            .theme-switch {
+                bottom: 80px;
+            }
         }
         /* Zusätzliche Optimierung für sehr kleine Bildschirme */
         @media (max-width: 400px) {
@@ -626,33 +629,7 @@
                        und Tailscale VPN abgesichert.</p>
                 </details>
             </div>
-            <!-- KI & Automatisierung -->
-            <div class="card">
-                <h3><i class="fas fa-brain"></i> KI &amp; Automatisierung</h3>
-                <details>
-                    <summary>Welche KI-Modelle werden verwendet?</summary>
-                    <p>Es kommen verschiedene lokale KI-Modelle zum Einsatz, je nach Anwendungsfall 
-                       (z. B. Text, Bild, Sprache). Die stromsparende KI laeuft 24/7, die leistungsstarke 
-                       KI nur bei Bedarf.</p>
-                </details>
-                <details>
-                    <summary>Kann ich die KI-Dienste auch selbst hosten?</summary>
-                    <p>Ja, die meisten Tools sind Open Source. Gerne gebe ich Tipps zum eigenen Setup 
-                       und teile Erfahrungen mit der Community.</p>
-                </details>
-                <details>
-                    <summary>Was kann ich mit Home Assistant steuern?</summary>
-                    <p>Licht, Heizung, Sicherheitssysteme und viele weitere Smart-Home-Geraete lassen sich 
-                       zentral steuern und automatisieren. Home Assistant dient als zentrale Plattform 
-                       fuer die Integration verschiedener Geraete und Dienste.</p>
-                </details>
-                <details>
-                    <summary>Wie funktioniert die Automatisierung mit n8n?</summary>
-                    <p>Mit n8n koennen Workflows zwischen verschiedenen Diensten ohne Programmierkenntnisse 
-                       erstellt werden. Es verbindet verschiedene Anwendungen und ermoeglicht komplexe 
-                       Automatisierungen.</p>
-                </details>
-            </div>
+            
             <!-- Content / Community -->
             <div class="card">
                 <h3><i class="fas fa-people-group"></i> Content &amp; Community</h3>
@@ -705,7 +682,7 @@
         setInitialTheme();
       }
       themeSwitch.addEventListener('click', toggleTheme);
-      prefersDarkScheme.addEventListener('change', setInitialTheme);
+      prefersDarkScheme.addListener(setInitialTheme);
     });
     </script>
     <!-- Load Navbar JavaScript -->
