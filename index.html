@@ -638,117 +638,6 @@
       </div>
     </div>
     
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Karten-Click-Handler
-      document.querySelectorAll('.card[data-modal]').forEach(card => {
-        card.addEventListener('click', function() {
-          const modalId = card.getAttribute('data-modal');
-          openModal(modalId);
-        });
-      });
-    
-      // X-Button-Handler
-      document.querySelectorAll('.modal .close').forEach(btn => {
-        btn.addEventListener('click', function(e) {
-          const modal = btn.closest('.modal');
-          closeModal(modal.id);
-        });
-      });
-    
-      // Hintergrund-Click-Handler
-      document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', function(e) {
-          if (e.target === modal) {
-            closeModal(modal.id);
-          }
-        });
-      });
-    
-      // Escape-Handler
-      document.addEventListener('keydown', function(e) {
-        if (e.key === "Escape") {
-          document.querySelectorAll('.modal.show').forEach(modal => {
-            closeModal(modal.id);
-          });
-        }
-      });
-    
-      // Modal-Öffnen
-      function openModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-          modal.style.display = "flex";
-          // Kurze Verzögerung für die Animation
-          requestAnimationFrame(() => {
-            modal.classList.add("show");
-          });
-        }
-      }
-      // Modal-Schliessen
-      function closeModal(id) {
-        const modal = document.getElementById(id);
-        if (modal) {
-          modal.classList.add("closing");
-          modal.classList.remove("show");
-          
-          // Warte auf das Ende der Animation
-          setTimeout(() => {
-            modal.style.display = "none";
-            modal.classList.remove("closing");
-          }, 200);
-        }
-      }
-    
-      // Verbesserter Theme-Switch
-      const themeSwitch = document.getElementById('themeSwitch');
-      const themeIcon = document.getElementById('themeIcon');
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      
-      function setInitialTheme() {
-        if (prefersDarkScheme.matches) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      }
-
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        
-        // Füge Rotations-Animation hinzu
-        themeSwitch.classList.add('rotating');
-        
-        // Ändere das Theme
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        
-        // Entferne die Animation nach Abschluss
-        setTimeout(() => {
-          themeSwitch.classList.remove('rotating');
-        }, 500);
-      }
-
-      // Theme aus Local Storage laden
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else {
-        setInitialTheme();
-      }
-
-      // Event Listener
-      themeSwitch.addEventListener('click', toggleTheme);
-      prefersDarkScheme.addListener(setInitialTheme);
-
-      // Mache die Funktionen global verfügbar
-      window.openModal = openModal;
-      window.closeModal = closeModal;
-    });
-    </script>
-    
-    <!-- Footer Container -->
     <div id="footer-container"></div>
 
     <!-- Load Navbar JavaScript -->
@@ -756,5 +645,7 @@
     
     <!-- Footer JavaScript -->
     <script src="footer.js"></script>
+
+    <script src="theme.js"></script>
 </body>
 </html>

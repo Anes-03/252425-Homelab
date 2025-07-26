@@ -689,5 +689,22 @@
     <script src="load-navbar.js"></script>
     
     <script src="footer.js"></script>
+    <script src="theme.js"></script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                const icon = item.querySelector('.icon .fa-plus, .icon .fa-times');
+                if (parent.classList.contains('active')) {
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-plus');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
