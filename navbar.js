@@ -58,23 +58,5 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Navbar scroll effect (optional)
-    let lastScrollTop = 0;
-    const navbar = document.querySelector('.navbar');
     
-    if (navbar) {
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            if (scrollTop > lastScrollTop && scrollTop > 100) {
-                // Scrolling down
-                navbar.style.transform = 'translateY(-100%)';
-            } else {
-                // Scrolling up
-                navbar.style.transform = 'translateY(0)';
-            }
-            
-            lastScrollTop = scrollTop;
-        });
-    }
 }); 
