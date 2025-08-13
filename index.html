@@ -202,13 +202,40 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85));
             border-radius: 12px;
+            backdrop-filter: blur(2px);
         }
 
         #menupy-card > * {
             position: relative;
             z-index: 1;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        #menupy-card h3 {
+            color: white !important;
+            font-weight: 700;
+        }
+        
+        #menupy-card p {
+            color: rgba(255, 255, 255, 0.95) !important;
+            font-weight: 500;
+        }
+        
+        #menupy-card a {
+            background: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(10px);
+            font-weight: 600;
+        }
+        
+        #menupy-card a:hover {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-color: rgba(255, 255, 255, 0.5) !important;
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
         footer {
@@ -531,34 +558,151 @@
         }
 
         .menupy-modal .modal-content {
-            background: linear-gradient(135deg, var(--card-bg), #2a2a2a);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            box-shadow: 
+                0 25px 80px rgba(102, 126, 234, 0.4), 
+                0 0 60px rgba(118, 75, 162, 0.3),
+                0 0 100px rgba(240, 147, 251, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
             text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            max-width: 500px;
+            padding: 2rem;
+        }
+        
+        .menupy-modal .modal-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+            animation: shimmer 6s ease-in-out infinite;
+            pointer-events: none;
         }
 
         .menupy-modal.show .modal-content {
-            animation: zoomInUp 0.4s forwards;
+            animation: zoomInUp 0.3s ease-out forwards;
         }
 
         @keyframes zoomInUp {
-            from {
-                transform: scale(0.8) translateY(50px);
+            0% {
+                transform: scale(0.9) translateY(20px);
                 opacity: 0;
             }
-            to {
+            100% {
                 transform: scale(1) translateY(0);
                 opacity: 1;
             }
         }
+        
+        @keyframes shimmer {
+            0%, 100% {
+                transform: translateX(-100%) translateY(-100%) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: translateX(0%) translateY(0%) rotate(45deg);
+                opacity: 1;
+            }
+        }
 
+        .menupy-modal .button-container {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .menupy-modal .modal-link {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.15) !important;
+            border: 1px solid rgba(255, 255, 255, 0.3) !important;
+            transition: all 0.4s ease;
+            transform: translateZ(0);
+            flex: 1;
+            min-width: 150px;
+            max-width: 180px;
+        }
+        
+        .menupy-modal .modal-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+        
         .menupy-modal .modal-link:hover {
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 10px 30px rgba(255, 255, 255, 0.3),
+                0 0 20px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.25) !important;
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        .menupy-modal .modal-link:hover::before {
+            left: 100%;
         }
 
         .menupy-modal .card-logo {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+        
+        .menupy-modal .card-logo:hover {
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
+            transform: scale(1.05) translateY(-5px);
+        }
+        
+        .menupy-modal h2 {
+            color: white !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0;
+        }
+        
+        .menupy-modal p {
+            color: rgba(255, 255, 255, 0.95) !important;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            font-weight: 500;
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            max-width: 400px;
+        }
+        
+        .menupy-modal .close {
+            color: rgba(255, 255, 255, 0.9) !important;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .menupy-modal .close:hover {
+            color: white !important;
+            transform: scale(1.2) rotate(90deg);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
 
         #easter-egg {
@@ -740,11 +884,13 @@
     <div id="menupyModal" class="modal menupy-modal">
       <div class="modal-content">
         <span class="close">&times;</span>
-        <img src="App Icon MenuPy (Logo).png" alt="MenuPy Logo" class="card-logo" style="display: block; margin: 0 auto 1rem;">
+        <img src="App Icon MenuPy (Logo).png" alt="MenuPy Logo" class="card-logo">
         <h2>MenuPy</h2>
         <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
-        <a href="https://menupy.252425.xyz" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Zur Webseite</a>
-        <a href="https://github.com/Anes-03/MenuPy" target="_blank" class="modal-link"><i class="fab fa-github"></i> GitHub</a>
+        <div class="button-container">
+          <a href="https://menupy.252425.xyz" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Webseite</a>
+          <a href="https://github.com/Anes-03/MenuPy" target="_blank" class="modal-link"><i class="fab fa-github"></i> GitHub</a>
+        </div>
       </div>
     </div>
 
