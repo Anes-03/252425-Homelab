@@ -135,39 +135,7 @@
         </div>
     </section>
 
-    <!-- === Theme Toggle Script (identisch zu index.html) === -->
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const themeSwitch = document.getElementById('themeSwitch');
-      const themeIcon = document.getElementById('themeIcon');
-      const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-      function setInitialTheme() {
-        if (prefersDarkScheme.matches) {
-          document.documentElement.setAttribute('data-theme', 'dark');
-        } else {
-          document.documentElement.setAttribute('data-theme', 'light');
-        }
-      }
-      function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        themeSwitch.classList.add('rotating');
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        setTimeout(() => {
-          themeSwitch.classList.remove('rotating');
-        }, 500);
-      }
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme) {
-        document.documentElement.setAttribute('data-theme', savedTheme);
-      } else {
-        setInitialTheme();
-      }
-      themeSwitch.addEventListener('click', toggleTheme);
-      prefersDarkScheme.addListener(setInitialTheme);
-    });
-    </script>
+    
 
     <!-- Footer Container -->
     <div id="footer-container"></div>
