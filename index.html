@@ -238,6 +238,8 @@
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
         }
 
+        /* Removed quiet-today link on card */
+
         footer {
             text-align: center;
             padding: 1.5rem 1rem;
@@ -256,6 +258,25 @@
             font-size: clamp(0.85rem, 2vw, 1rem);
             margin: 0;
             color: var(--text-color);
+        }
+        /* Generic compact badge style (reused for Coming Soon) */
+        .badge-compact {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: var(--text-color);
+        }
+        .card .badge-compact {
+            margin-top: 0.35rem;
+            align-self: center; /* prevent full-width stretch in flex column */
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 90%;
         }
         .footer-email {
             color: var(--text-color);
@@ -576,6 +597,103 @@
             max-width: 500px;
             padding: 2rem;
         }
+
+        /* Vertically center spotlight content while keeping controls at top */
+        .auto-spotlight .modal-content {
+            min-height: 420px;
+        }
+        .auto-spotlight .spotlight-body {
+            margin-top: auto;
+            margin-bottom: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Blog modal: reduce unused space and size up logo */
+        #blogModal .modal-content { padding: 1.2rem 1.5rem 1rem !important; min-height: auto; }
+        #blogModal .spotlight-body { margin-top: 0 !important; margin-bottom: 0 !important; }
+        #blogModal .card-logo { width: 120px !important; height: auto !important; }
+        #blogModal .badge-compact { margin-top: 0.35rem; margin-bottom: 0.4rem; }
+        #blogModal h2 { margin-top: 0.2rem !important; }
+        #blogModal .button-container { margin-top: 0.2rem; }
+
+        /* MenuPy modal: adopt compact layout (keep gradient theme) */
+        #menupyModal .modal-content { padding: 2.4rem 1.5rem 1rem !important; min-height: auto; }
+        #menupyModal .spotlight-body { margin-top: 0.6rem !important; margin-bottom: 0 !important; }
+        #menupyModal .button-container { margin-top: 0.4rem; }
+        /* Slightly larger logo to balance space (keeps brand look) */
+        #menupyModal .card-logo { width: 110px; height: auto; }
+        
+        /* Generic icon logo for spotlight modals */
+        .menupy-modal .icon-logo {
+            width: 80px;
+            height: 80px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.25);
+            color: #fff;
+            font-size: 42px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
+        }
+        .menupy-modal .icon-logo i { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3)); }
+        .menupy-modal .icon-logo:hover { transform: none; }
+
+        /* HOMELAB modal tweaks */
+        #techStackModal .modal-content { padding: 1.2rem 1.5rem 1rem !important; min-height: auto !important; }
+        #techStackModal .spotlight-body { margin-top: 0 !important; margin-bottom: 0 !important; }
+        #techStackModal .icon-logo { width: 120px; height: 120px; font-size: 60px; }
+        #techStackModal .badge-compact {
+            display: inline-block;
+            align-self: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.02em;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: rgba(0,0,0,0.25);
+            border: 1px solid rgba(255,255,255,0.35);
+            color: #fff;
+            margin-top: 0.35rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* HOMELAB modal: force black theme like Blog */
+        #techStackModal .modal-content {
+            background: #000 !important;
+            color: #fff !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6) !important;
+        }
+        #techStackModal .modal-content::before { display: none !important; }
+        #techStackModal h2,
+        #techStackModal p,
+        #techStackModal .close,
+        #techStackModal .quiet-close,
+        #techStackModal .modal-link {
+            color: #fff !important;
+            text-shadow: none !important;
+        }
+        #techStackModal .icon-logo {
+            background: #111;
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        #techStackModal .icon-logo:hover { transform: none !important; }
+        #techStackModal .modal-link {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        }
+        #techStackModal .modal-link:hover {
+            background: rgba(255, 255, 255, 0.16) !important;
+            border-color: rgba(255, 255, 255, 0.35) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        #techStackModal .button-container { margin-top: 0.2rem; }
         
         .menupy-modal .modal-content::before {
             content: '';
@@ -673,6 +791,12 @@
             filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.4));
             transform: scale(1.05) translateY(-5px);
         }
+
+        /* Remove hover effect for MenuPy logo specifically */
+        #menupyModal .card-logo:hover {
+            transform: none !important;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3)) !important;
+        }
         
         .menupy-modal h2 {
             color: white !important;
@@ -704,6 +828,71 @@
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
             filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
         }
+
+        /* Blog modal: force black theme, ignore global themes */
+        #blogModal .modal-content {
+            background: #000 !important;
+            color: #fff !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6) !important;
+        }
+        #blogModal .modal-content::before { display: none !important; }
+        #blogModal h2,
+        #blogModal p,
+        #blogModal .close,
+        #blogModal .quiet-close,
+        #blogModal .modal-link {
+            color: #fff !important;
+            text-shadow: none !important;
+        }
+        #blogModal .card-logo {
+            filter: none !important;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            margin-top: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+        #blogModal .card-logo:hover { transform: none !important; filter: none !important; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important; }
+        #blogModal h2 { margin-top: 0.25rem !important; }
+        #blogModal .badge-compact { margin-top: 0.25rem; margin-bottom: 0.5rem; }
+        #blogModal .modal-link {
+            background: rgba(255, 255, 255, 0.08) !important;
+            border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        }
+        #blogModal .modal-link:hover {
+            background: rgba(255, 255, 255, 0.16) !important;
+            border-color: rgba(255, 255, 255, 0.35) !important;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+        #blogModal .badge-compact {
+            display: inline-block;
+            align-self: center;
+            font-size: 0.7rem;
+            letter-spacing: 0.02em;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: #111;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            color: #fff;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Quiet-close button inside the MenuPy modal (styled like the X) */
+        .menupy-modal .quiet-close {
+            position: absolute;
+            top: 12px;
+            left: 20px;
+            right: auto;
+            font-size: 16px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .menupy-modal .quiet-close:hover { color: rgba(255, 255, 255, 0.9); transform: none; text-shadow: 0 2px 4px rgba(0,0,0,0.3); filter: none; }
 
         #easter-egg {
             color: var(--bg-color);
@@ -751,27 +940,27 @@
             <div class="card">
                 <h3><i class="fas fa-home"></i> Home Assistant</h3>
                 <p>Eine zentrale Plattform für die Steuerung und Automatisierung meines Smart Homes. Ermöglicht die Integration verschiedener Geräte und Dienste in einem einheitlichen Interface.</p>
-                <p><strong>Coming Soon</strong></p>
+                <span class="badge badge-compact">Coming Soon</span>
             </div>
             <div class="card">
                 <h3><i class="fas fa-cogs"></i> n8n</h3>
                 <p>Ein leistungsstarkes Workflow-Automatisierungstool, das verschiedene Dienste und Anwendungen miteinander verbindet. Ermöglicht die Erstellung komplexer Automatisierungen ohne Programmierkenntnisse.</p>
-                <p><strong>Coming Soon</strong></p>
+                <span class="badge badge-compact">Coming Soon</span>
             </div>
             <div class="card">
                 <h3><i class="fas fa-heartbeat"></i> Uptime Kuma</h3>
                 <p>Ein selbst gehostetes Monitoring-Tool zur Überwachung der Verfügbarkeit und Performance aller Homelab-Dienste. Bietet Echtzeit-Status, Benachrichtigungen und detaillierte Statistiken über die Systemleistung.</p>
-                <p><strong>Coming Soon</strong></p>
+                <span class="badge badge-compact">Coming Soon</span>
             </div>
             <div class="card">
                 <h3><i class="fas fa-filter"></i> Pi-hole</h3>
                 <p>Ein netzwerkweiter DNS-Filter zum Blockieren von Werbung, Trackern und schädlichen Domains. Verbessert Privatsphäre und Performance für alle Geräte im Heimnetz.</p>
-                <p><strong>Coming Soon</strong></p>
+                <span class="badge badge-compact">Coming Soon</span>
             </div>
             <div class="card">
                 <h3><i class="fas fa-network-wired"></i> Intranet</h3>
                 <p>Eine zentrale interne Weboberfläche für das Homelab-Management mit direkten Links zu allen Diensten, System-Dashboards und administrativen Tools. Vereinfacht die Navigation und Verwaltung des gesamten Homelab-Ökosystems.</p>
-                <p><strong>Coming Soon</strong></p>
+                <span class="badge badge-compact">Coming Soon</span>
             </div>
         </div>
     </section>
@@ -830,15 +1019,52 @@
     
     <!-- Modals -->
 
-    <div id="menupyModal" class="modal menupy-modal">
+    <div id="menupyModal" class="modal menupy-modal auto-spotlight" data-frequency="session" data-cooldown-hours="1">
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <img src="App Icon MenuPy (Logo).png" alt="MenuPy Logo" class="card-logo">
-        <h2>MenuPy</h2>
-        <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
-        <div class="button-container">
-          <a href="https://menupy.252425.xyz" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Webseite</a>
-          <a href="https://github.com/Anes-03/MenuPy" target="_blank" class="modal-link"><i class="fab fa-github"></i> GitHub</a>
+        <span class="quiet-close close" title="Heute nicht mehr anzeigen"><i class="fas fa-bell-slash"></i> Heute nicht mehr anzeigen</span>
+        <span class="close" title="Schließen">&times;</span>
+        <div class="spotlight-body">
+          <img src="App Icon MenuPy (Logo).png" alt="MenuPy Logo" class="card-logo">
+          <h2>MenuPy</h2>
+          <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
+          <div class="button-container">
+            <a href="https://menupy.252425.xyz" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Webseite</a>
+            <a href="https://github.com/Anes-03/MenuPy" target="_blank" class="modal-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alternate spotlight: Blog -->
+    <div id="blogModal" class="modal menupy-modal auto-spotlight" data-frequency="session" data-cooldown-hours="1">
+      <div class="modal-content">
+        <span class="quiet-close close" title="Heute nicht mehr anzeigen"><i class="fas fa-bell-slash"></i> Heute nicht mehr anzeigen</span>
+        <span class="close" title="Schließen">&times;</span>
+        <div class="spotlight-body">
+          <img src="logo.jpeg" alt="252425 Logo" class="card-logo">
+          <span class="badge badge-compact">Neu</span>
+          <h2>252425 Homelab Blog</h2>
+          <p>Neuigkeiten, Tipps und Updates rund um 252425 findest du jetzt im Blog.</p>
+          <div class="button-container">
+            <a href="https://blog.252425.xyz" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Zum Blog</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alternate spotlight: HOMELAB -->
+    <div id="techStackModal" class="modal menupy-modal auto-spotlight" data-frequency="session" data-cooldown-hours="1">
+      <div class="modal-content">
+        <span class="quiet-close close" title="Heute nicht mehr anzeigen"><i class="fas fa-bell-slash"></i> Heute nicht mehr anzeigen</span>
+        <span class="close" title="Schließen">&times;</span>
+        <div class="spotlight-body">
+          <div class="icon-logo" aria-hidden="true"><i class="fas fa-microchip"></i></div>
+          <span class="badge badge-compact">Neu</span>
+          <h2>HOMELAB</h2>
+          <p>Ein Überblick über Hardware, Software und die Infrastruktur, die das 252425 Homelab antreiben.</p>
+          <div class="button-container">
+            <a href="https://252425.xyz/index.html" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Zum HOMELAB</a>
+          </div>
         </div>
       </div>
     </div>
