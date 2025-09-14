@@ -1,42 +1,56 @@
 /* Footer Styles */
-footer {
+.site-footer {
     text-align: center;
     padding: 1.5rem 1rem;
-    background-color: var(--footer-bg);
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.06),
+        rgba(255, 255, 255, 0.03),
+        rgba(200, 200, 200, 0.06)
+    ), var(--footer-bg);
     color: var(--text-color);
     margin-top: auto;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(18px) saturate(160%);
+    box-shadow:
+        0 -8px 24px rgba(0, 0, 0, 0.12),
+        0 -2px 6px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
-.footer-content {
+.site-footer .footer-content {
     display: flex;
     flex-direction: column;
     gap: 0.8rem;
     align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.footer-content p {
+.site-footer .footer-content p {
     font-size: clamp(0.85rem, 2vw, 1rem);
     margin: 0;
     color: var(--text-color);
+    opacity: 0.9;
 }
 
-.footer-email {
+.site-footer .footer-email {
     color: var(--text-color);
     text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.footer-email:hover {
+.site-footer .footer-email:hover {
     color: var(--button-hover);
 }
 
-.footer-logo {
+.site-footer .footer-logo {
     width: 40px;
     height: 40px;
     margin-bottom: 0.5rem;
     opacity: 0.8;
     transition: opacity 0.3s ease;
+    border-radius: 8px; /* Match navbar logo corners */
+    object-fit: cover;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -49,42 +63,84 @@ footer {
     margin-left: 1rem;
 }
 
-.footer-logo:hover {
+.site-footer .footer-logo:hover {
     opacity: 1;
 }
 
 /* Social Media Styles */
-.social-media {
+.site-footer .social-media {
     margin-top: 1rem;
     text-align: center;
 }
 
-.social-icons {
+.site-footer .social-icons {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1.5rem;
 }
 
-.social-icons p {
+.site-footer .social-icons p {
     margin: 0;
     font-size: 1rem;
+    opacity: 0.9;
 }
 
-.social-icons a {
+.site-footer .social-icons a {
     color: var(--text-color);
     font-size: 1.5rem;
     transition: all 0.3s ease;
+    padding: 6px;
+    border-radius: 8px;
 }
 
-.social-icons a:hover {
-    transform: scale(1.2);
-    color: var(--button-hover);
+.site-footer .social-icons a:hover {
+    transform: scale(1.15) translateY(-1px);
+    color: var(--title-gradient-start);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.15), rgba(200, 200, 200, 0.12));
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Footer links */
+.site-footer .footer-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.site-footer .footer-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.site-footer .footer-links a:hover {
+    color: var(--text-color);
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), rgba(200, 200, 200, 0.2));
+    border-color: rgba(255, 255, 255, 0.35);
+    transform: translateY(-1px);
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.site-footer .footer-links a i {
+    margin-right: 6px;
 }
 
 /* Responsive Styles */
 @media (min-width: 600px) {
-    .footer-content {
+    .site-footer .footer-content {
         flex-direction: row;
         justify-content: center;
         gap: 2rem;
@@ -92,12 +148,12 @@ footer {
         align-items: center;
     }
     
-    .social-media {
+    .site-footer .social-media {
         margin-top: 0;
         margin-left: 2rem;
     }
 
-    .footer-logo {
+    .site-footer .footer-logo {
         margin-bottom: 0;
         margin-right: 0;
         margin-left: 2rem;
@@ -109,7 +165,7 @@ footer {
         bottom: 80px;
     }
     
-    .social-icons {
+    .site-footer .social-icons {
         padding-bottom: 20px;
     }
 }
@@ -164,4 +220,11 @@ footer {
 
 .theme-menu button.active i {
     opacity: 1;
+}
+
+/* Accessibility: focus styles */
+.site-footer a:focus-visible {
+    outline: 2px solid var(--title-gradient-start);
+    outline-offset: 2px;
+    border-radius: 10px;
 }
