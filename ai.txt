@@ -1,0 +1,38 @@
+# ai.txt – Richtlinie für AI-Crawler und Modelle
+# Hinweis: ai.txt ist ein aufkommender, optionaler Standard. Viele Anbieter
+# (OpenAI/GPTBot, Anthropic/ClaudeBot, PerplexityBot, Google‑Extended, Applebot‑Extended)
+# lesen ai.txt zusätzlich zu robots.txt. Passe die Regeln unten bei Bedarf an.
+
+# Basisinformationen
+Homepage: https://252425.xyz/
+Sitemap: https://252425.xyz/sitemap.xml
+Contact: mailto:info@252425.xyz
+
+# Standardregel – erlaube KI‑Crawling und Zitier‑/Antwortnutzung
+User-agent: *
+Allow: /
+
+# Explizit benannte Bots (einfach auf Disallow umstellen, falls gewünscht)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Trainings-/Erweiterungs-Opt-ins (nur Trainingsnutzung, kein Crawler)
+# Wenn du Trainingsnutzung NICHT möchtest, setze hier Disallow statt Allow.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
