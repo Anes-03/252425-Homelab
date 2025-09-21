@@ -48,6 +48,20 @@
             --footer-bg: #1a1a1a;
             --title-gradient-start: #ffffff;
             --title-gradient-end: #a0a0a0;
+            /* Badge colors (dark default) */
+            --badge-bg: rgba(255, 255, 255, 0.10);
+            --badge-border: rgba(255, 255, 255, 0.25);
+            --badge-text: var(--text-color);
+            /* Badge variant colors (dark) */
+            --badge-success-bg: rgba(34, 197, 94, 0.20);   /* green */
+            --badge-success-border: rgba(34, 197, 94, 0.50);
+            --badge-success-text: #bbf7d0;
+            --badge-warning-bg: rgba(245, 158, 11, 0.22); /* amber */
+            --badge-warning-border: rgba(245, 158, 11, 0.55);
+            --badge-warning-text: #fde68a;
+            --badge-danger-bg: rgba(239, 68, 68, 0.20);   /* red */
+            --badge-danger-border: rgba(239, 68, 68, 0.55);
+            --badge-danger-text: #fecaca;
         }
 
         [data-theme="light"] {
@@ -61,6 +75,20 @@
             --footer-bg: #e0e0e0;
             --title-gradient-start: #333333;
             --title-gradient-end: #666666;
+            /* Badge colors (light theme) */
+            --badge-bg: rgba(0, 0, 0, 0.06);
+            --badge-border: rgba(0, 0, 0, 0.15);
+            --badge-text: var(--text-color);
+            /* Badge variant colors (light) */
+            --badge-success-bg: rgba(34, 197, 94, 0.12);
+            --badge-success-border: rgba(34, 197, 94, 0.35);
+            --badge-success-text: #166534; /* green-800 */
+            --badge-warning-bg: rgba(245, 158, 11, 0.12);
+            --badge-warning-border: rgba(245, 158, 11, 0.35);
+            --badge-warning-text: #92400e; /* amber-800 */
+            --badge-danger-bg: rgba(239, 68, 68, 0.12);
+            --badge-danger-border: rgba(239, 68, 68, 0.35);
+            --badge-danger-text: #991b1b; /* red-800 */
         }
 
         body {
@@ -262,17 +290,34 @@
             margin: 0;
             color: var(--text-color);
         }
-        /* Generic compact badge style (reused for Coming Soon) */
+        /* Generic compact badge style (theme-aware) */
         .badge-compact {
             display: inline-block;
             font-size: 0.75rem;
             letter-spacing: 0.02em;
             padding: 2px 8px;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.10);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            color: var(--text-color);
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--badge-text);
+            line-height: 1.4;
         }
+        .badge-compact.badge--success {
+            background: var(--badge-success-bg);
+            border-color: var(--badge-success-border);
+            color: var(--badge-success-text);
+        }
+        .badge-compact.badge--warning, .badge-compact.badge--private {
+            background: var(--badge-warning-bg);
+            border-color: var(--badge-warning-border);
+            color: var(--badge-warning-text);
+        }
+        .badge-compact.badge--danger {
+            background: var(--badge-danger-bg);
+            border-color: var(--badge-danger-border);
+            color: var(--badge-danger-text);
+        }
+        .badge-compact i { margin-right: 0.35em; }
         .card .badge-compact {
             margin-top: 0.35rem;
             align-self: center; /* prevent full-width stretch in flex column */
@@ -289,6 +334,10 @@
         .footer-email:hover {
             color: var(--button-hover);
         }
+        /* Badge legend layout */
+        .badge-legend { text-align: center; margin-top: 0.5rem; }
+        .badge-legend .legend-items { display: inline-flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; justify-content: center; }
+        .badge-legend .badge-compact { margin: 0.15rem; }
         .footer-logo {
             width: 40px;
             height: 40px;
@@ -953,7 +1002,8 @@
             <div class="card">
                 <h3><i class="fas fa-heartbeat"></i> Uptime Kuma</h3>
                 <p>Ein selbst gehostetes Monitoring-Tool zur Überwachung der Verfügbarkeit und Performance aller Homelab-Dienste. Bietet Echtzeit-Status, Benachrichtigungen und detaillierte Statistiken über die Systemleistung.</p>
-                <span class="badge badge-compact">Coming Soon</span>
+                <span class="badge-compact badge--private" title="Nicht öffentlich zugänglich" aria-label="Privat – Nicht öffentlich zugänglich"><i class="fas fa-lock" aria-hidden="true"></i>Privat</span>
+                <a href="http://uptime-kuma.252425.xyz" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> Zu Uptime Kuma</a>
             </div>
             <div class="card">
                 <h3><i class="fas fa-filter"></i> Pi-hole</h3>
@@ -964,6 +1014,17 @@
                 <h3><i class="fas fa-network-wired"></i> Intranet</h3>
                 <p>Eine zentrale interne Weboberfläche für das Homelab-Management mit direkten Links zu allen Diensten, System-Dashboards und administrativen Tools. Vereinfacht die Navigation und Verwaltung des gesamten Homelab-Ökosystems.</p>
                 <span class="badge badge-compact">Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badge Legende -->
+    <section aria-label="Badge Legende" style="padding-top:0">
+        <div class="badge-legend" role="note">
+            <div class="legend-items">
+                <span class="badge-compact badge--success"><i class="fas fa-circle-check" aria-hidden="true"></i>Öffentlich/Verfügbar</span>
+                <span class="badge-compact badge--private"><i class="fas fa-lock" aria-hidden="true"></i>Privat/Nicht öffentlich</span>
+                <span class="badge-compact badge--danger"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>Eingeschränkt/Offline</span>
             </div>
         </div>
     </section>
@@ -1045,7 +1106,7 @@
         <span class="close" title="Schließen">&times;</span>
         <div class="spotlight-body">
           <img src="logo.jpeg" alt="252425 Logo" class="card-logo">
-          <span class="badge badge-compact">Neu</span>
+          <span class="badge-compact badge--success">Neu</span>
           <h2>252425 Homelab Blog</h2>
           <p>Neuigkeiten, Tipps und Updates rund um 252425 findest du jetzt im Blog.</p>
           <div class="button-container">
@@ -1062,7 +1123,7 @@
         <span class="close" title="Schließen">&times;</span>
         <div class="spotlight-body">
           <div class="icon-logo" aria-hidden="true"><i class="fas fa-microchip"></i></div>
-          <span class="badge badge-compact">Neu</span>
+          <span class="badge-compact badge--success">Neu</span>
           <h2>HOMELAB</h2>
           <p>Ein Überblick über Hardware, Software und die Infrastruktur, die das 252425 Homelab antreiben.</p>
           <div class="button-container">
