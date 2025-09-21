@@ -32,6 +32,20 @@
             --footer-bg: #1a1a1a;
             --title-gradient-start: #ffffff;
             --title-gradient-end: #a0a0a0;
+            /* Badge colors (dark default) */
+            --badge-bg: rgba(255, 255, 255, 0.10);
+            --badge-border: rgba(255, 255, 255, 0.25);
+            --badge-text: var(--text-color);
+            /* Badge variant colors (dark) */
+            --badge-success-bg: rgba(34, 197, 94, 0.20);
+            --badge-success-border: rgba(34, 197, 94, 0.50);
+            --badge-success-text: #bbf7d0;
+            --badge-warning-bg: rgba(245, 158, 11, 0.22);
+            --badge-warning-border: rgba(245, 158, 11, 0.55);
+            --badge-warning-text: #fde68a;
+            --badge-danger-bg: rgba(239, 68, 68, 0.20);
+            --badge-danger-border: rgba(239, 68, 68, 0.55);
+            --badge-danger-text: #fecaca;
         }
 
         [data-theme="light"] {
@@ -45,6 +59,20 @@
             --footer-bg: #e0e0e0;
             --title-gradient-start: #333333;
             --title-gradient-end: #666666;
+            /* Badge colors (light theme) */
+            --badge-bg: rgba(0, 0, 0, 0.06);
+            --badge-border: rgba(0, 0, 0, 0.15);
+            --badge-text: var(--text-color);
+            /* Badge variant colors (light) */
+            --badge-success-bg: rgba(34, 197, 94, 0.12);
+            --badge-success-border: rgba(34, 197, 94, 0.35);
+            --badge-success-text: #166534;
+            --badge-warning-bg: rgba(245, 158, 11, 0.12);
+            --badge-warning-border: rgba(245, 158, 11, 0.35);
+            --badge-warning-text: #92400e;
+            --badge-danger-bg: rgba(239, 68, 68, 0.12);
+            --badge-danger-border: rgba(239, 68, 68, 0.35);
+            --badge-danger-text: #991b1b;
         }
 
         body {
@@ -120,6 +148,17 @@
         .item i { font-size: 1rem; opacity: 0.9; }
         .item-title { font-weight: 600; }
         .item-meta { opacity: 0.9; font-size: 0.95rem; }
+        /* Badges */
+        .badge-compact { display: inline-block; font-size: 0.72rem; letter-spacing: 0.02em; padding: 2px 8px; border-radius: 999px; background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--badge-text); line-height: 1.3; vertical-align: middle; }
+        .badge-compact i { margin-right: 0.35em; }
+        .badge-compact.badge--success { background: var(--badge-success-bg); border-color: var(--badge-success-border); color: var(--badge-success-text); }
+        .badge-compact.badge--warning, .badge-compact.badge--private { background: var(--badge-warning-bg); border-color: var(--badge-warning-border); color: var(--badge-warning-text); }
+        .badge-compact.badge--danger { background: var(--badge-danger-bg); border-color: var(--badge-danger-border); color: var(--badge-danger-text); }
+        .item .badge-compact { margin-left: 0.5rem; }
+        /* Legend */
+        .badge-legend { text-align: center; margin-top: 0.5rem; }
+        .badge-legend .legend-items { display: inline-flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; justify-content: center; }
+        .badge-legend .badge-compact { margin: 0.15rem; }
         .item-actions { justify-self: end; align-self: center; display: flex; gap: 0.5rem; }
         .btn-icon { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.55rem; font-size: 0.85rem; line-height: 1; color: var(--text-color); background: var(--button-bg); border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease; }
         .btn-icon i { font-size: 0.9rem; }
@@ -189,11 +228,11 @@
                             <div class="item-meta">A10X Fusion, 64 GB Speicher</div>
                         </div>
                     </li>
-                    <li class="item">
-                        <i class="fas fa-laptop"></i>
+                    <li class="item" data-ar="ar-models/imac-m1.usdz#callToAction=In%20AR%20ansehen">
+                        <i class="fab fa-apple"></i>
                         <div>
-                            <div class="item-title">HP EliteBook 850 G5</div>
-                            <div class="item-meta">Intel Core i7-8550U, UHD 620, 16 GB RAM, 477 GB</div>
+                            <div class="item-title">iMac (Docker, Nginx, Uptime Kuma)</div>
+                            <div class="item-meta">Apple M1, 16 GB RAM, 1 TB</div>
                         </div>
                     </li>
                 </ul>
@@ -209,10 +248,10 @@
                         </div>
                     </li>
                     <li class="item">
-                        <i class="fab fa-apple"></i>
+                        <i class="fas fa-laptop"></i>
                         <div>
-                            <div class="item-title">iMac</div>
-                            <div class="item-meta">Apple M1, 16 GB RAM, 1 TB</div>
+                            <div class="item-title">HP EliteBook 850 G5</div>
+                            <div class="item-meta">Intel Core i7-8550U, UHD 620, 16 GB RAM, 477 GB</div>
                         </div>
                     </li>
                     <li class="item">
@@ -234,6 +273,7 @@
                 <h3>Aktuell</h3>
                 <ul class="item-list">
                     <li class="item"><i class="fab fa-docker"></i><div><div class="item-title">Docker</div><div class="item-meta">Container-Management</div></div></li>
+                    <li class="item"><i class="fas fa-server"></i><div><div class="item-title">Nginx</div><div class="item-meta">Reverse Proxy / Webserver</div></div></li>
                     <li class="item"><i class="fas fa-cloud"></i><div><div class="item-title">Nextcloud</div><div class="item-meta">Cloud-Speicher</div></div></li>
                     <li class="item"><i class="fas fa-brain"></i><div><div class="item-title">Lokale KI-Modelle</div><div class="item-meta">Text/Analyse/Unterstützung</div></div></li>
                     <li class="item"><i class="fab fa-github"></i><div><div class="item-title">GitHub Pages</div><div class="item-meta">Projekthosting</div></div></li>
@@ -241,17 +281,28 @@
                     <li class="item"><i class="fas fa-network-wired"></i><div><div class="item-title">Tailscale</div><div class="item-meta">Mesh-VPN</div></div></li>
                     <li class="item"><i class="fas fa-gamepad"></i><div><div class="item-title">Sunshine + Moonlight</div><div class="item-meta">Game-Streaming</div></div></li>
                     <li class="item"><i class="fas fa-desktop"></i><div><div class="item-title">RustDesk</div><div class="item-meta">Remote-Desktop</div></div></li>
+                    <li class="item"><i class="fas fa-heartbeat"></i><div><div class="item-title">Uptime Kuma <span class="badge-compact badge--private" title="Nicht öffentlich zugänglich"><i class="fas fa-lock" aria-hidden="true"></i>Privat</span></div><div class="item-meta">Monitoring</div></div></li>
                 </ul>
             </div>
             <div class="stack-card">
                 <h3>Geplante Erweiterungen</h3>
                 <ul class="item-list">
-                    <li class="item"><i class="fas fa-home"></i><div><div class="item-title">Home Assistant</div><div class="item-meta">Home Automation</div></div></li>
-                    <li class="item"><i class="fas fa-cogs"></i><div><div class="item-title">n8n</div><div class="item-meta">Workflow-Automatisierung</div></div></li>
-                    <li class="item"><i class="fas fa-heartbeat"></i><div><div class="item-title">Uptime Kuma</div><div class="item-meta">Monitoring</div></div></li>
-                    <li class="item"><i class="fas fa-filter"></i><div><div class="item-title">Pi-hole</div><div class="item-meta">DNS-Werbeblocker</div></div></li>
-                    <li class="item"><i class="fas fa-network-wired"></i><div><div class="item-title">Intranet</div><div class="item-meta">Zentrale Verwaltungsoberfläche</div></div></li>
+                    <li class="item"><i class="fas fa-home"></i><div><div class="item-title">Home Assistant <span class="badge-compact">Coming Soon</span></div><div class="item-meta">Home Automation</div></div></li>
+                    <li class="item"><i class="fas fa-cogs"></i><div><div class="item-title">n8n <span class="badge-compact">Coming Soon</span></div><div class="item-meta">Workflow-Automatisierung</div></div></li>
+                    <li class="item"><i class="fas fa-filter"></i><div><div class="item-title">Pi-hole <span class="badge-compact">Coming Soon</span></div><div class="item-meta">DNS-Werbeblocker</div></div></li>
+                    <li class="item"><i class="fas fa-network-wired"></i><div><div class="item-title">Intranet <span class="badge-compact">Coming Soon</span></div><div class="item-meta">Zentrale Verwaltungsoberfläche</div></div></li>
                 </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Badge Legende -->
+    <section aria-label="Badge Legende" style="padding-top:0">
+        <div class="badge-legend" role="note">
+            <div class="legend-items">
+                <span class="badge-compact badge--success"><i class="fas fa-circle-check" aria-hidden="true"></i>Öffentlich/Verfügbar</span>
+                <span class="badge-compact badge--private"><i class="fas fa-lock" aria-hidden="true"></i>Privat/Nicht öffentlich</span>
+                <span class="badge-compact badge--danger"><i class="fas fa-triangle-exclamation" aria-hidden="true"></i>Eingeschränkt/Offline</span>
             </div>
         </div>
     </section>
@@ -261,6 +312,7 @@
         <div class="stack-grid">
             <div class="stack-card">
                 <ul class="item-list">
+                    <li class="item"><i class="fas fa-server"></i><div><div class="item-title">Nginx</div><div class="item-meta">Reverse Proxy / TLS / Routing</div></div></li>
                     <li class="item"><i class="fas fa-shield-alt"></i><div><div class="item-title">Cloudflare Zero Trust</div><div class="item-meta">Zugriffsschutz und Policies</div></div></li>
                     <li class="item"><i class="fas fa-lock"></i><div><div class="item-title">Tailscale VPN</div><div class="item-meta">Sicheres, privates Netzwerk</div></div></li>
                 </ul>
