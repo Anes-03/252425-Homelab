@@ -178,22 +178,19 @@
             gap: 1rem;
             width: 100%;
         }
-        @media (min-width: 700px) {
-            .blog-preview-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
         .blog-preview-card {
             background: var(--card-bg);
             border-radius: 12px;
             border: 1px solid var(--border-color);
-            padding: 1.1rem;
+            padding: 1.2rem; /* match .card spacing */
             display: flex;
             flex-direction: column;
             gap: 0.6rem;
             height: 100%;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            box-sizing: border-box; /* match .card behavior */
         }
         .blog-preview-card:hover {
             transform: translateY(-5px);
@@ -244,6 +241,35 @@
             font-size: clamp(0.85rem, 2vw, 0.95rem);
             line-height: 1.4;
             margin: 0;
+        }
+        /* Align blog grid breakpoints with .cards-container */
+        @media (min-width: 600px) {
+            .blog-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+        }
+        @media (min-width: 900px) {
+            .blog-preview-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        /* Mobile tweaks: make blog cards more compact on small screens */
+        @media (max-width: 480px) {
+            .blog-preview-grid { gap: 0.75rem; }
+            .blog-preview-card { padding: 0.85rem; border-radius: 10px; }
+            .blog-preview-card a { gap: 0.5rem; }
+            .blog-preview-card h3 { font-size: 1rem; }
+            .blog-preview-date, .blog-preview-summary { font-size: 0.85rem; }
+            /* Slightly taller image on small phones for better visual balance */
+            .blog-preview-image { aspect-ratio: 4 / 3; margin-bottom: 0.3rem; }
+        }
+
+        /* Fallback for browsers that don't support CSS aspect-ratio */
+        @supports not (aspect-ratio: 1) {
+            .blog-preview-image { position: relative; }
+            .blog-preview-image::before { content: ""; display: block; padding-bottom: 56.25%; }
+            .blog-preview-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
         }
         .blog-preview-status {
             margin: 0;
