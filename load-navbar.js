@@ -48,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         link.classList.add('active');
                     }
                 });
+
+                if (typeof window.initializeSiteSearch === 'function') {
+                    window.initializeSiteSearch();
+                }
             })
             .catch(error => {
                 console.error('Error loading navbar:', error);
