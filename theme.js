@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const moonPath = '<path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>';
   // Simple monitor icon for "System"
   const systemPath = '<path d="M4 5h16a2 2 0 012 2v8a2 2 0 01-2 2h-5v2h3a1 1 0 110 2H6a1 1 0 110-2h3v-2H4a2 2 0 01-2-2V7a2 2 0 012-2zm0 2v8h16V7H4z"/>';
+  // Stylised sparkle for "Pitch Black"
+  const pitchPath = '<path d="M12 2l1.7 4.79L18 8.5l-4.3 1.71L12 15l-1.7-4.79L6 8.5l4.3-1.71L12 2zm0 6.2l-.9 2.52L8.6 11.4l2.5 1 .9 2.6.9-2.6 2.5-1-2.5-.68-.9-2.52z"/>';
 
   const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function setPreference(pref) {
     if (pref === 'system') {
       localStorage.setItem('themePreference', 'system');
-    } else if (pref === 'light' || pref === 'dark') {
+    } else if (pref === 'light' || pref === 'dark' || pref === 'pitch') {
       localStorage.setItem('themePreference', pref);
     }
     applyPreference(pref);
@@ -36,6 +38,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (pref === 'system') {
       return mediaQuery.matches ? 'dark' : 'light';
     }
+    if (pref === 'pitch') {
+      return 'pitch';
+    }
     return pref === 'dark' ? 'dark' : 'light';
   }
 
@@ -43,6 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const effective = effectiveThemeFor(pref);
     if (!themeIcon) return;
     // Show current effective theme
+    if (effective === 'pitch') {
+      themeIcon.innerHTML = pitchPath;
+      return;
+    }
     themeIcon.innerHTML = effective === 'dark' ? moonPath : sunPath;
   }
 
@@ -78,6 +87,11 @@ document.addEventListener('DOMContentLoaded', function() {
       <button type="button" data-pref="dark" role="menuitemradio" aria-checked="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">${moonPath}</svg>
         <span>Dunkel</span>
+        <i class="fa-solid fa-check"></i>
+      </button>
+      <button type="button" data-pref="pitch" role="menuitemradio" aria-checked="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">${pitchPath}</svg>
+        <span>Pitch Black</span>
         <i class="fa-solid fa-check"></i>
       </button>
     `;
