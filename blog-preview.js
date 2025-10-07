@@ -207,12 +207,40 @@
         if (doc.querySelector('parsererror')) {
             return { posts: [], baseUrl: fallbackBase };
         }
+        // Helper: namespace-agnostic child lookup by localName
+        const firstChildByLocalName = (parent, names) => {
+            const set = new Set(names);
+            const els = parent.children || [];
+            for (let i = 0; i < els.length; i++) {
+                const el = els[i];
+                if (set.has(el.localName)) return el;
+            }
+            return null;
+        };
+
         const items = Array.from(doc.querySelectorAll('item, entry')).map((node) => {
-            const title = node.querySelector('title')?.textContent || '';
-            const linkNode = node.querySelector('link');
-            const link = linkNode?.getAttribute('href') || linkNode?.textContent || '';
-            const description = node.querySelector('description, summary, content')?.textContent || '';
-            const published = node.querySelector('pubDate, updated, published')?.textContent || '';
+            // Title (fallback via localName)
+            let title = node.querySelector('title')?.textContent || '';
+            if (!title) title = firstChildByLocalName(node, ['title'])?.textContent || '';
+
+            // Link (prefer rel=alternate in Atom)
+            let link = '';
+            const linkAlternate = node.querySelector('link[rel="alternate"][href]');
+            const anyLink = node.querySelector('link');
+            link = linkAlternate?.getAttribute('href') || anyLink?.getAttribute('href') || anyLink?.textContent || '';
+            if (!link) {
+                const linkFallback = firstChildByLocalName(node, ['link']);
+                link = linkFallback?.getAttribute?.('href') || linkFallback?.textContent || '';
+            }
+
+            // Description/summary (namespace-agnostic)
+            let description = node.querySelector('description, summary, content')?.textContent || '';
+            if (!description) description = firstChildByLocalName(node, ['description', 'summary', 'content'])?.textContent || '';
+
+            // Published/updated
+            let published = node.querySelector('pubDate, updated, published')?.textContent || '';
+            if (!published) published = firstChildByLocalName(node, ['pubDate', 'updated', 'published'])?.textContent || '';
+
             const image = extractImageFromRssNode(node);
             return { title, url: link, description, published, image };
         });
@@ -305,10 +333,6 @@
             meta.textContent = 'Aktualisiert';
         }
 
-        const summary = document.createElement('p');
-        summary.className = 'blog-preview-summary';
-        summary.textContent = truncate(stripHtml(post.description), 180) || 'Keine Vorschau verfügbar.';
-
         if (post.image) {
             const imageWrapper = document.createElement('div');
             imageWrapper.className = 'blog-preview-image';
@@ -323,7 +347,7 @@
             link.append(imageWrapper);
         }
 
-        link.append(title, meta, summary);
+        link.append(title, meta);
         article.append(link);
         return article;
     };
@@ -360,7 +384,38 @@
         return { posts: [], baseUrl: BLOG_ORIGIN };
     };
 
-    const renderPosts = (posts, baseUrl) => {
+    const getOgImageFromHtml = (html) => {
+        if (!html) return '';
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(html, 'text/html');
+        const byProps = [
+            'meta[property="og:image"]',
+            'meta[name="og:image"]',
+            'meta[name="twitter:image"]',
+            'meta[property="twitter:image"]',
+            'link[rel="image_src"]'
+        ];
+        for (const sel of byProps) {
+            const node = doc.querySelector(sel);
+            const content = node?.getAttribute('content') || node?.getAttribute('href') || '';
+            if (content && content.trim()) return content.trim();
+        }
+        const img = doc.querySelector('article img[src], main img[src], img[src]');
+        return img?.getAttribute('src')?.trim() || '';
+    };
+
+    const fetchOgImage = async (pageUrl) => {
+        try {
+            const res = await fetch(pageUrl, { mode: 'cors', headers: { Accept: 'text/html' } });
+            if (!res.ok) return '';
+            const html = await res.text();
+            return getOgImageFromHtml(html) || '';
+        } catch {
+            return '';
+        }
+    };
+
+    const renderPosts = async (posts, baseUrl) => {
         clearStatus();
         container.querySelectorAll('.blog-preview-card').forEach((card) => card.remove());
         if (!posts.length) {
@@ -369,7 +424,7 @@
         }
 
         const effectiveBase = baseUrl || BLOG_ORIGIN;
-        const sorted = posts
+        let sorted = posts
             .map((post) => {
                 const resolvedUrl = resolveUrl(post.url, effectiveBase);
                 const resolvedImage = resolveUrl(post.image, resolvedUrl || effectiveBase);
@@ -397,7 +452,17 @@
             return;
         }
 
-        sorted.forEach((post) => {
+        // Try to enrich missing images using OG/Twitter tags from the post page
+        const enriched = await Promise.all(
+            sorted.map(async (post) => {
+                if (post.image) return post;
+                const og = await fetchOgImage(post.url);
+                if (!og) return post;
+                return { ...post, image: resolveUrl(og, post.url) };
+            })
+        );
+
+        enriched.forEach((post) => {
             container.append(buildCard(post));
         });
     };
