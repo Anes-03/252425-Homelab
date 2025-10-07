@@ -24,11 +24,39 @@
                 </li>
             </ul>
         </div>
-        
+
+        <div class="navbar-actions">
+            <button class="search-toggle" id="search-toggle" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" aria-label="Suche öffnen">
+                <i class="fas fa-search"></i>
+                <span>Suche</span>
+                <span class="shortcut-hint">Strg + K</span>
+            </button>
+        </div>
+
         <div class="navbar-toggle" id="navbar-toggle">
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
             <span class="hamburger-line"></span>
         </div>
     </div>
-</nav> 
+
+    <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-title" aria-hidden="true">
+        <div class="search-panel">
+            <div class="search-header">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search"></i>
+                    <input type="search" id="site-search-input" placeholder="Nach Inhalten auf 252425.xyz suchen" autocomplete="off" spellcheck="false" aria-labelledby="search-title">
+                </div>
+                <button class="search-close" id="search-close" type="button" aria-label="Suche schließen">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="search-meta">
+                <h2 id="search-title">Suche</h2>
+                <p class="search-description">Durchsuche alle internen Seiten nach Diensten, Projekten und Antworten.</p>
+            </div>
+            <div class="search-results" id="search-results" role="listbox" aria-live="polite"></div>
+            <div class="search-empty" id="search-empty">Gib einen Suchbegriff ein, um Ergebnisse zu sehen.</div>
+        </div>
+    </div>
+</nav>
