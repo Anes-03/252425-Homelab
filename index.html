@@ -319,55 +319,7 @@
             border-radius: 10px;
         }
 
-        #menupy-card {
-            background-image: url('App Icon MenuPy (Logo).png');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        #menupy-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.85));
-            border-radius: 12px;
-            backdrop-filter: blur(2px);
-        }
-
-        #menupy-card > * {
-            position: relative;
-            z-index: 1;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
         
-        #menupy-card h3 {
-            color: white !important;
-            font-weight: 700;
-        }
-        
-        #menupy-card p {
-            color: rgba(255, 255, 255, 0.95) !important;
-            font-weight: 500;
-        }
-        
-        #menupy-card a {
-            background: rgba(255, 255, 255, 0.2) !important;
-            color: white !important;
-            border: 1px solid rgba(255, 255, 255, 0.3) !important;
-            backdrop-filter: blur(10px);
-            font-weight: 600;
-        }
-        
-        #menupy-card a:hover {
-            background: rgba(255, 255, 255, 0.3) !important;
-            border-color: rgba(255, 255, 255, 0.5) !important;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-        }
 
         /* Removed quiet-today link on card */
 
@@ -1175,8 +1127,15 @@
     <section>
         <h2>252425 Anwendungen</h2>
         <div class="cards-container">
-            <div class="card" id="menupy-card">
-                <img src="App Icon MenuPy (Logo).png" alt="MenuPy Logo" class="card-logo" style="display: none;">
+            <div class="card">
+                <h3>Markdown WebEditor</h3>
+                <span class="badge-compact badge--success">Neu</span>
+                <p>Ein komplett clientseitiger Markdown‑Editor, der offline im Browser läuft – ohne Registrierung und ohne Server. Bietet Live‑Vorschau, Editor/Split/Reader‑Ansicht, Drag & Drop, Import (PDF/DOCX) und Export (HTML/PDF), Themes, Shortcuts sowie optionale KI‑Assistenz über konfigurierbare Anbieter.</p>
+                <a href="https://markdown-webeditor.252425.xyz" target="_blank"><i class="fas fa-external-link-alt"></i> Zur Webseite</a>
+                <a href="https://github.com/Anes-03/Markdown-WebEditor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            </div>
+
+            <div class="card">
                 <h3>MenuPy</h3>
                 <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
                 <a href="https://menupy.252425.xyz" target="_blank"><i class="fas fa-external-link-alt"></i> Zur Webseite</a>
@@ -1186,6 +1145,21 @@
     </section>
     
     <!-- Modals -->
+
+    <div id="markdownEditorModal" class="modal menupy-modal auto-spotlight" data-frequency="session" data-cooldown-hours="1">
+      <div class="modal-content">
+        <span class="quiet-close close" title="Heute nicht mehr anzeigen"><i class="fas fa-bell-slash"></i> Heute nicht mehr anzeigen</span>
+        <span class="close" title="Schließen">&times;</span>
+        <div class="spotlight-body">
+          <h2>Markdown WebEditor</h2>
+          <p>Ein leichter, komplett clientseitiger Markdown‑Editor mit Live‑Vorschau, Editor/Split/Reader‑Ansicht, Drag & Drop, Import (PDF/DOCX) und Export (HTML/PDF) – alles offline im Browser nutzbar.</p>
+          <div class="button-container">
+            <a href="https://markdown-webeditor.252425.xyz" target="_blank" class="modal-link"><i class="fas fa-external-link-alt"></i> Webseite</a>
+            <a href="https://github.com/Anes-03/Markdown-WebEditor" target="_blank" class="modal-link"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div id="menupyModal" class="modal menupy-modal auto-spotlight" data-frequency="session" data-cooldown-hours="1">
       <div class="modal-content">
