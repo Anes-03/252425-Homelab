@@ -722,6 +722,22 @@
         #blogModal h2 { margin-top: 0.2rem !important; }
         #blogModal .button-container { margin-top: 0.2rem; }
 
+        /* Markdown WebEditor modal: mirror blog modal layout */
+        #markdownEditorModal .modal-content {
+            /* Extra top padding so logo doesn't collide with quiet-close */
+            padding: 2.2rem 1.5rem 1rem !important;
+            min-height: auto;
+            /* Make this spotlight card black (override gradient) */
+            background: #000 !important;
+            border: 1px solid var(--border-color) !important;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+        }
+        #markdownEditorModal .spotlight-body { margin-top: 0 !important; margin-bottom: 0 !important; }
+        #markdownEditorModal .card-logo { width: 120px !important; height: auto !important; margin-top: 0.25rem !important; }
+        #markdownEditorModal .badge-compact { margin-top: 0.35rem; margin-bottom: 0.4rem; }
+        #markdownEditorModal h2 { margin-top: 0.2rem !important; }
+        #markdownEditorModal .button-container { margin-top: 0.2rem; }
+
         /* MenuPy modal: adopt compact layout (keep gradient theme) */
         #menupyModal .modal-content { padding: 2.4rem 1.5rem 1rem !important; min-height: auto; }
         #menupyModal .spotlight-body { margin-top: 0.6rem !important; margin-bottom: 0 !important; }
@@ -1151,6 +1167,10 @@
         <span class="quiet-close close" title="Heute nicht mehr anzeigen"><i class="fas fa-bell-slash"></i> Heute nicht mehr anzeigen</span>
         <span class="close" title="Schließen">&times;</span>
         <div class="spotlight-body">
+          <img src="App Icon Markdown Webeditor (Logo).png" alt="Markdown WebEditor Logo" class="card-logo">
+          <div class="badge-row">
+            <span class="badge-compact badge--success">Neu</span>
+          </div>
           <h2>Markdown WebEditor</h2>
           <p>Ein leichter, komplett clientseitiger Markdown‑Editor mit Live‑Vorschau, Editor/Split/Reader‑Ansicht, Drag & Drop, Import (PDF/DOCX) und Export (HTML/PDF) – alles offline im Browser nutzbar.</p>
           <div class="button-container">
