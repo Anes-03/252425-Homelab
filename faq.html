@@ -177,10 +177,17 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            color: var(--text-color);
+            font: inherit;
+            padding: 0;
         }
         .theme-switch:hover {
             transform: scale(1.1);
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .theme-switch:focus-visible {
+            outline: 2px solid #9ca3ff;
+            outline-offset: 3px;
         }
         .theme-switch svg {
             width: 28px;
@@ -435,9 +442,11 @@
         }
     </style>
 </head>
-<body>
-    <div id="navbar-placeholder"></div>
-    <pre class="ascii-desktop" style="font-family: monospace; font-size: 0.85em; text-align: center; color: var(--text-color); margin: 20px 0;">
+  <body>
+      <div id="navbar-placeholder"></div>
+
+      <main id="main-content" tabindex="-1">
+      <pre class="ascii-desktop" aria-hidden="true" style="font-family: monospace; font-size: 0.85em; text-align: center; color: var(--text-color); margin: 20px 0;">
  _______ _______ _______   ___ _______ _______            _______ _______ _______ _       _______ ______     _______ _______ _______ 
 / ___   (  ____ / ___   ) /   / ___   (  ____ \  |\     /(  ___  (       (  ____ ( \     (  ___  (  ___ \   (  ____ (  ___  (  ___  )
 \/   )  | (    \/   )  |/ /) \/   )  | (    \/  | )   ( | (   ) | () () | (    \| (     | (   ) | (   ) )  | (    \| (   ) | (   ) |
@@ -448,14 +457,15 @@
 \_______\______/\_______/   (_\_______\______/   |/     \(_______|/     \(_______(_______|/     \|/ \___/   |/      |/     \(____\/_)
                                                                                                                                     
     </pre>
-    <div class="ascii-mobile">252425 Homelab – FAQ</div>
-    <!-- Theme-Switch -->
-    <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
-        <svg id="themeIcon" viewBox="0 0 24 24">
-            <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36
-                     c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
-        </svg>
-    </div>
+      <div class="ascii-mobile" aria-hidden="true">252425 Homelab – FAQ</div>
+      <!-- Theme-Switch -->
+      <button type="button" class="theme-switch" id="themeSwitch" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme wechseln">
+          <span class="visually-hidden">Theme wechseln</span>
+          <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36
+                       c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
+          </svg>
+      </button>
     <!-- Header -->
     <header>
         <h1>Haeufige Fragen</h1>
@@ -468,7 +478,7 @@
         <div class="cards-container">
             <!-- Allgemein -->
             <div class="card">
-                <h3><i class="fas fa-circle-info"></i> Allgemein</h3>
+                <h3><i class="fas fa-circle-info" aria-hidden="true"></i> Allgemein</h3>
                 <details>
                     <summary>Was ist das 252425 Homelab?</summary>
                     <p>Ein privates Lab-Netzwerk, in dem ich Hardware teste und Services betreibe. Es dient als Spielwiese für neue Technologien.</p>
@@ -498,7 +508,7 @@
             </div>
             <!-- Hardware -->
             <div class="card">
-                <h3><i class="fas fa-server"></i> Hardware &amp; Infrastruktur</h3>
+                <h3><i class="fas fa-server" aria-hidden="true"></i> Hardware &amp; Infrastruktur</h3>
                 <details>
                     <summary>Welche Server & Hardware nutzt du aktuell?</summary>
                     <ul>
@@ -540,7 +550,7 @@
             </div>
             <!-- Software -->
             <div class="card">
-                <h3><i class="fas fa-code"></i> Software &amp; Dienste</h3>
+                <h3><i class="fas fa-code" aria-hidden="true"></i> Software &amp; Dienste</h3>
                 <details>
                     <summary>Welche Software & Hardware nutzt du?</summary>
                     <p><strong>Software & Dienste:</strong></p>
@@ -576,7 +586,7 @@
             </div>
             <!-- KI & Automatisierung -->
             <div class="card">
-                <h3><i class="fas fa-brain"></i> KI &amp; Automatisierung</h3>
+                <h3><i class="fas fa-brain" aria-hidden="true"></i> KI &amp; Automatisierung</h3>
                 <details>
                     <summary>Welche KI-Modelle werden verwendet?</summary>
                     <p>Es kommen verschiedene lokale KI-Modelle zum Einsatz, je nach Anwendungsfall 
@@ -614,7 +624,7 @@
             
             <!-- Content / Community -->
             <div class="card">
-                <h3><i class="fas fa-people-group"></i> Content &amp; Community</h3>
+                <h3><i class="fas fa-people-group" aria-hidden="true"></i> Content &amp; Community</h3>
                 <details>
                     <summary>Wie kann ich dich am besten erreichen?</summary>
                     <p>Entweder via <a href="mailto:info@252425.xyz">E-Mail</a> oder ueber das
@@ -633,6 +643,8 @@
             </div>
         </div>
     </section>
+    </main>
+
     <!-- Footer -->
     <div id="footer-container"></div>
     <script src="search.js"></script>

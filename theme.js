@@ -73,6 +73,9 @@ document.addEventListener('DOMContentLoaded', function() {
     themeMenu = document.createElement('div');
     themeMenu.className = 'theme-menu';
     themeMenu.setAttribute('role', 'menu');
+    themeMenu.setAttribute('id', 'themeMenu');
+    themeMenu.setAttribute('aria-hidden', 'true');
+    themeMenu.setAttribute('aria-labelledby', 'themeSwitch');
     themeMenu.innerHTML = `
       <button type="button" data-pref="system" role="menuitemradio" aria-checked="false">
         <svg viewBox="0 0 24 24" aria-hidden="true">${systemPath}</svg>
@@ -97,13 +100,16 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.body.appendChild(themeMenu);
 
+    themeSwitch.setAttribute('aria-controls', 'themeMenu');
+    themeSwitch.setAttribute('aria-expanded', 'false');
+
     themeMenu.addEventListener('click', (e) => {
       const btn = e.target.closest('button[data-pref]');
       if (!btn) return;
       const pref = btn.getAttribute('data-pref');
       themeSwitch.classList.add('rotating');
       setPreference(pref);
-      closeMenu();
+      closeMenu({ returnFocus: true });
       setTimeout(() => themeSwitch.classList.remove('rotating'), 400);
     });
 
@@ -117,20 +123,56 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // ESC to close
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape') closeMenu({ returnFocus: true });
+    });
+
+    themeMenu.addEventListener('keydown', (e) => {
+      const items = Array.from(themeMenu.querySelectorAll('button[data-pref]'));
+      if (!items.length) return;
+
+      const currentIndex = items.indexOf(document.activeElement);
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        const nextIndex = currentIndex >= 0 ? (currentIndex + 1) % items.length : 0;
+        items[nextIndex].focus();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        const prevIndex = currentIndex >= 0 ? (currentIndex - 1 + items.length) % items.length : items.length - 1;
+        items[prevIndex].focus();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        items[0].focus();
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        items[items.length - 1].focus();
+      } else if (e.key === 'Escape') {
+        e.preventDefault();
+        closeMenu({ returnFocus: true });
+      }
     });
   }
 
   function openMenu() {
     if (!themeMenu) return;
     themeMenu.classList.add('open');
+    themeMenu.setAttribute('aria-hidden', 'false');
+    themeSwitch.setAttribute('aria-expanded', 'true');
     const pref = getPreference();
     updateMenuActive(pref);
+    const activeItem = themeMenu.querySelector('button.active') || themeMenu.querySelector('button[data-pref]');
+    if (activeItem) {
+      activeItem.focus();
+    }
   }
 
-  function closeMenu() {
+  function closeMenu(options = {}) {
     if (!themeMenu) return;
     themeMenu.classList.remove('open');
+    themeMenu.setAttribute('aria-hidden', 'true');
+    themeSwitch.setAttribute('aria-expanded', 'false');
+    if (options.returnFocus) {
+      themeSwitch.focus();
+    }
   }
 
   function updateMenuActive(pref) {
@@ -148,9 +190,21 @@ document.addEventListener('DOMContentLoaded', function() {
       e.preventDefault();
       if (!themeMenu) return;
       if (themeMenu.classList.contains('open')) {
-        closeMenu();
+        closeMenu({ returnFocus: true });
       } else {
         openMenu();
+      }
+    });
+
+    themeSwitch.addEventListener('keydown', (e) => {
+      if (!themeMenu) return;
+      if ((e.key === 'ArrowDown' || e.key === 'ArrowUp') && !themeMenu.classList.contains('open')) {
+        e.preventDefault();
+        openMenu();
+      }
+      if (e.key === 'Escape' && themeMenu.classList.contains('open')) {
+        e.preventDefault();
+        closeMenu({ returnFocus: true });
       }
     });
   }

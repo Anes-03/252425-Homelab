@@ -74,24 +74,26 @@
 <body>
     <!-- Navbar -->
     <div id="navbar-placeholder"></div>
-    
-    <pre class="ascii-desktop" style="font-family: monospace; font-size: 1.8em; text-align: center; color: var(--text-color); margin: 20px 0;">
-  ____                               _   
- / ___| _   _ _ __  _ __   ___  _ __| |_ 
+
+    <main id="main-content" tabindex="-1">
+    <pre class="ascii-desktop" aria-hidden="true" style="font-family: monospace; font-size: 1.8em; text-align: center; color: var(--text-color); margin: 20px 0;">
+  ____                               _
+ / ___| _   _ _ __  _ __   ___  _ __| |_
  \___ \| | | | '_ \| '_ \ / _ \| '__| __|
-  ___) | |_| | |_) | |_) | (_) | |  | |_ 
+  ___) | |_| | |_) | |_) | (_) | |  | |_
  |____/ \__,_| .__/| .__/ \___/|_|   \__|
-             |_|   |_|                   
+             |_|   |_|
     </pre>
-    <div class="ascii-mobile">252425 Homelab – Support</div>
-    
+    <div class="ascii-mobile" aria-hidden="true">252425 Homelab – Support</div>
+
     <!-- Theme-Switch Button -->
-    <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
-        <svg id="themeIcon" viewBox="0 0 24 24">
+    <button type="button" class="theme-switch" id="themeSwitch" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme wechseln">
+        <span class="visually-hidden">Theme wechseln</span>
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36
             c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
         </svg>
-    </div>
+    </button>
 
     <!-- Header / Hero -->
     <header id="top">
@@ -104,14 +106,19 @@
         <h2>Supportanfrage</h2>
         <div class="cards-container">
             <div class="card">
-                <h3><i class="fas fa-life-ring"></i> Beschreibe dein Problem</h3>
+                <h3><i class="fas fa-life-ring" aria-hidden="true"></i> Beschreibe dein Problem</h3>
                 <div class="logo-container">
                     <img src="logo.jpeg" alt="Logo" style="width:100%;max-width:180px;max-height:220px;height:auto;object-fit:contain;border-radius:8px;box-shadow:0 4px 8px rgba(0,0,0,0.1);" draggable="false" oncontextmenu="return false;">
                 </div>
                 <form action="mailto:support@252425.xyz" method="POST" enctype="text/plain">
-                    <input type="text" name="name" placeholder="Name" required>
-                    <input type="email" name="email" placeholder="E-Mail" required>
-                    <select name="problem-type" required>
+                    <label for="support-name">Name</label>
+                    <input type="text" id="support-name" name="name" placeholder="Name" required>
+
+                    <label for="support-email">E-Mail</label>
+                    <input type="email" id="support-email" name="email" placeholder="E-Mail" required>
+
+                    <label for="support-problem-type">Kategorie</label>
+                    <select id="support-problem-type" name="problem-type" required>
                         <option value="">Kategorie wählen</option>
                         <option value="252425-cloud">252425 Cloud (NextCloud)</option>
                         <option value="252425-ai">252425 AI</option>
@@ -119,15 +126,19 @@
                         <option value="project-question">Projektanfrage (GitHub Projekte)</option>
                         <option value="general-support">Allgemeine Anfrage</option>
                     </select>
-                    <textarea name="problem-details" rows="5" placeholder="Details zum Problem" required></textarea>
-                    <button type="submit"><i class="fas fa-paper-plane"></i> Support-Anfrage senden</button>
+
+                    <label for="support-problem-details">Details zum Problem</label>
+                    <textarea id="support-problem-details" name="problem-details" rows="5" placeholder="Details zum Problem" required></textarea>
+
+                    <button type="submit"><i class="fas fa-paper-plane" aria-hidden="true"></i> <span>Support-Anfrage senden</span></button>
                 </form>
             </div>
         </div>
     </section>
 
-    
 
+
+    </main>
     <!-- Footer Container -->
     <div id="footer-container"></div>
 

@@ -1,5 +1,6 @@
 <!-- Navbar -->
-<nav class="navbar">
+<a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+<nav class="navbar" aria-label="Hauptnavigation">
     <div class="navbar-container">
         <div class="navbar-brand">
             <a href="index.html" class="navbar-logo">
@@ -7,37 +8,37 @@
                 <span class="logo-text">252425 Homelab</span>
             </a>
         </div>
-        
+
         <div class="navbar-menu" id="navbar-menu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link"><i class="fas fa-house"></i> Home</a>
+                    <a href="index.html" class="nav-link"><i class="fas fa-house" aria-hidden="true"></i> Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="https://blog.252425.xyz" class="nav-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-blog"></i> Blog</a>
+                    <a href="https://blog.252425.xyz" class="nav-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-blog" aria-hidden="true"></i> Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link"><i class="fas fa-microchip"></i> HOMELAB</a>
+                    <a href="index.html" class="nav-link"><i class="fas fa-microchip" aria-hidden="true"></i> HOMELAB</a>
                 </li>
                 <li class="nav-item">
-                    <a href="support.html" class="nav-link"><i class="fas fa-life-ring"></i> Support</a>
+                    <a href="support.html" class="nav-link"><i class="fas fa-life-ring" aria-hidden="true"></i> Support</a>
                 </li>
             </ul>
         </div>
 
         <div class="navbar-actions">
             <button class="search-toggle" id="search-toggle" type="button" aria-haspopup="dialog" aria-controls="search-overlay" aria-expanded="false" aria-label="Suche öffnen">
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search" aria-hidden="true"></i>
                 <span>Suche</span>
                 <span class="shortcut-hint">Strg + K</span>
             </button>
         </div>
 
-        <div class="navbar-toggle" id="navbar-toggle">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-        </div>
+        <button type="button" class="navbar-toggle" id="navbar-toggle" aria-expanded="false" aria-controls="navbar-menu" aria-label="Navigation ein- oder ausblenden">
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
+        </button>
     </div>
 
     <div class="search-overlay" id="search-overlay" role="dialog" aria-modal="true" aria-labelledby="search-title" aria-hidden="true">

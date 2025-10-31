@@ -36,8 +36,9 @@
         .sitemap-list a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.6rem; border: 1px solid var(--border-color); border-radius: 8px; text-decoration: none; color: var(--text-color); background: var(--button-bg); transition: transform 0.15s ease, background 0.2s ease, border-color 0.2s ease; }
         .sitemap-list a:hover { transform: translateY(-1px); background: var(--button-hover); border-color: rgba(255,255,255,0.2); }
 
-        .theme-switch { position: fixed; bottom: 20px; right: 20px; z-index: 100; background: var(--button-bg); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .theme-switch { position: fixed; bottom: 20px; right: 20px; z-index: 100; background: var(--button-bg); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2); color: var(--text-color); font: inherit; padding: 0; }
         .theme-switch:hover { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .theme-switch:focus-visible { outline: 2px solid #9ca3ff; outline-offset: 3px; }
         .theme-switch svg { width: 28px; height: 28px; fill: var(--text-color); }
         html { scroll-behavior: smooth; }
     </style>
@@ -45,36 +46,37 @@
 <body>
     <div id="navbar-placeholder"></div>
 
-    <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
-        <svg id="themeIcon" viewBox="0 0 24 24">
+    <button type="button" class="theme-switch" id="themeSwitch" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme wechseln">
+        <span class="visually-hidden">Theme wechseln</span>
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
         </svg>
-    </div>
+    </button>
 
     <header>
         <h1>Sitemap</h1>
         <p>Übersicht aller Seiten des 252425 Homelab.</p>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
         <section class="sitemap">
             <h2>Seiten</h2>
             <ul class="sitemap-list">
-                <li><a href="/"><i class="fas fa-house"></i> Startseite</a></li>
-                <li><a href="index.html"><i class="fas fa-microchip"></i> HOMELAB</a></li>
-                <li><a href="support.html"><i class="fas fa-life-ring"></i> Support</a></li>
-                <li><a href="faq.html"><i class="fas fa-circle-question"></i> FAQ</a></li>
-                <li><a href="kontakt.html"><i class="fas fa-envelope"></i> Kontakt</a></li>
-                <li><a href="sitemap.xml"><i class="fas fa-sitemap"></i> XML‑Sitemap</a></li>
+                <li><a href="/"><i class="fas fa-house" aria-hidden="true"></i> Startseite</a></li>
+                <li><a href="index.html"><i class="fas fa-microchip" aria-hidden="true"></i> HOMELAB</a></li>
+                <li><a href="support.html"><i class="fas fa-life-ring" aria-hidden="true"></i> Support</a></li>
+                <li><a href="faq.html"><i class="fas fa-circle-question" aria-hidden="true"></i> FAQ</a></li>
+                <li><a href="kontakt.html"><i class="fas fa-envelope" aria-hidden="true"></i> Kontakt</a></li>
+                <li><a href="sitemap.xml"><i class="fas fa-sitemap" aria-hidden="true"></i> XML‑Sitemap</a></li>
             </ul>
         </section>
 
         <section class="sitemap" style="margin-top:1rem">
             <h2>Externe Bereiche</h2>
             <ul class="sitemap-list">
-                <li><a href="https://blog.252425.xyz" target="_blank" rel="noopener"><i class="fas fa-blog"></i> Blog</a></li>
-                <li><a href="https://menupy.252425.xyz" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> MenuPy Webseite</a></li>
-                <li><a href="https://github.com/Anes-03" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a></li>
+                <li><a href="https://blog.252425.xyz" target="_blank" rel="noopener"><i class="fas fa-blog" aria-hidden="true"></i> Blog</a></li>
+                <li><a href="https://menupy.252425.xyz" target="_blank" rel="noopener"><i class="fas fa-external-link-alt" aria-hidden="true"></i> MenuPy Webseite</a></li>
+                <li><a href="https://github.com/Anes-03" target="_blank" rel="noopener"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
             </ul>
         </section>
     </main>
