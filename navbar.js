@@ -5,27 +5,50 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Toggle mobile menu
     if (navbarToggle && navbarMenu) {
+        function toggleMenu(forceState, options = {}) {
+            const isOpen = typeof forceState === 'boolean'
+                ? forceState
+                : !navbarMenu.classList.contains('active');
+
+            navbarMenu.classList.toggle('active', isOpen);
+            navbarToggle.classList.toggle('active', isOpen);
+            navbarToggle.setAttribute('aria-expanded', String(isOpen));
+
+            if (!isOpen && options.restoreFocus) {
+                navbarToggle.focus();
+            }
+        }
+
         navbarToggle.addEventListener('click', function() {
-            navbarMenu.classList.toggle('active');
-            navbarToggle.classList.toggle('active');
+            toggleMenu();
         });
-        
+
+        navbarToggle.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                toggleMenu(false, { restoreFocus: true });
+            }
+        });
+
         // Close menu when clicking on a link
         const navLinks = document.querySelectorAll('.nav-link');
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                navbarMenu.classList.remove('active');
-                navbarToggle.classList.remove('active');
+                toggleMenu(false);
             });
         });
-        
+
         // Close menu when clicking outside
         document.addEventListener('click', function(event) {
             const isClickInsideNavbar = navbarToggle.contains(event.target) || navbarMenu.contains(event.target);
-            
+
             if (!isClickInsideNavbar && navbarMenu.classList.contains('active')) {
-                navbarMenu.classList.remove('active');
-                navbarToggle.classList.remove('active');
+                toggleMenu(false);
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && navbarMenu.classList.contains('active')) {
+                toggleMenu(false, { restoreFocus: true });
             }
         });
     }

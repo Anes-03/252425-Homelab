@@ -99,14 +99,15 @@ body {
     align-items: start;
 }
 
-.card form input[type="text"], 
-.card form input[type="email"], 
-.card form select {
-    grid-column: span 1;
+.card form label,
+.card form input[type="text"],
+.card form input[type="email"],
+.card form select,
+.card form textarea {
+    grid-column: span 2;
 }
 
 .card form textarea {
-    grid-column: span 2;
     min-height: 120px;
     resize: vertical;
 }
@@ -251,11 +252,19 @@ section h2 {
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: var(--text-color);
+    font: inherit;
+    padding: 0;
 }
 
 .theme-switch:hover {
     transform: scale(1.1);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.theme-switch:focus-visible {
+    outline: 2px solid #9ca3ff;
+    outline-offset: 3px;
 }
 
 .theme-switch.rotating {

@@ -123,8 +123,9 @@
 
         footer { text-align: center; padding: 1.5rem 1rem; background-color: var(--footer-bg); color: var(--text-color); margin-top: auto; border-top: 1px solid var(--border-color); }
 
-        .theme-switch { position: fixed; bottom: 20px; right: 20px; z-index: 100; background: var(--button-bg); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .theme-switch { position: fixed; bottom: 20px; right: 20px; z-index: 100; background: var(--button-bg); border: 1px solid var(--border-color); border-radius: 50%; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 5px rgba(0,0,0,0.2); color: var(--text-color); font: inherit; padding: 0; }
         .theme-switch:hover { transform: scale(1.1); box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .theme-switch:focus-visible { outline: 2px solid #9ca3ff; outline-offset: 3px; }
         .theme-switch svg { width: 28px; height: 28px; fill: var(--text-color); }
         html { scroll-behavior: smooth; }
         .anchor { scroll-margin-top: 80px; }
@@ -135,33 +136,34 @@
     <div id="navbar-placeholder"></div>
 
     <!-- Theme toggle -->
-    <div class="theme-switch" id="themeSwitch" title="Theme wechseln">
-        <svg id="themeIcon" viewBox="0 0 24 24">
+    <button type="button" class="theme-switch" id="themeSwitch" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme wechseln">
+        <span class="visually-hidden">Theme wechseln</span>
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
         </svg>
-    </div>
+    </button>
 
     <header>
         <h1>Tech-Stack</h1>
         <p>Übersicht über Hardware, Software und Netzwerk in meinem Homelab.</p>
     </header>
 
-    <main>
+    <main id="main-content" tabindex="-1">
     <section id="hardware" class="anchor">
-        <h2><i class="fas fa-server"></i> Server & Hardware</h2>
+        <h2><i class="fas fa-server" aria-hidden="true"></i> Server & Hardware</h2>
         <div class="stack-grid">
             <div class="stack-card">
                 <h3>Aktiv im Einsatz</h3>
                 <ul class="item-list">
                     <li class="item">
-                        <i class="fas fa-microchip"></i>
+                        <i class="fas fa-microchip" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">Raspberry Pi 5 (252425 Cloud)</div>
                             <div class="item-meta">4 GB RAM, 2 TB Speicher</div>
                         </div>
                     </li>
                     <li class="item" data-ar="ar-models/mac-mini-m4.usdz#callToAction=In%20AR%20ansehen">
-                        <i class="fab fa-apple"></i>
+                        <i class="fab fa-apple" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">Mac mini (KI-Modelle)</div>
                             <div class="item-meta">Apple M4, 32 GB RAM, 1 TB Speicher</div>
@@ -169,14 +171,14 @@
                         </div>
                     </li>
                     <li class="item">
-                        <i class="fas fa-tv"></i>
+                        <i class="fas fa-tv" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">Apple TV 4K (2017) — Tailscale</div>
                             <div class="item-meta">A10X Fusion, 64 GB Speicher</div>
                         </div>
                     </li>
                     <li class="item" data-ar="ar-models/imac-m1.usdz#callToAction=In%20AR%20ansehen">
-                        <i class="fab fa-apple"></i>
+                        <i class="fab fa-apple" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">iMac (Docker, Nginx, Uptime Kuma)</div>
                             <div class="item-meta">Apple M1, 16 GB RAM, 1 TB</div>
@@ -188,21 +190,21 @@
                 <h3>Derzeit nicht in Betrieb</h3>
                 <ul class="item-list">
                     <li class="item">
-                        <i class="fas fa-desktop"></i>
+                        <i class="fas fa-desktop" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">PC</div>
                             <div class="item-meta">RTX 4060 Ti, Ryzen 5 5600, 32 GB RAM, 1 TB</div>
                         </div>
                     </li>
                     <li class="item">
-                        <i class="fas fa-laptop"></i>
+                        <i class="fas fa-laptop" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">HP EliteBook 850 G5</div>
                             <div class="item-meta">Intel Core i7-8550U, UHD 620, 16 GB RAM, 477 GB</div>
                         </div>
                     </li>
                     <li class="item">
-                        <i class="fas fa-microchip"></i>
+                        <i class="fas fa-microchip" aria-hidden="true"></i>
                         <div>
                             <div class="item-title">Raspberry Pi 4</div>
                             <div class="item-meta">4 GB RAM</div>
@@ -214,28 +216,30 @@
     </section>
 
     <section id="software" class="anchor">
-        <h2><i class="fas fa-code"></i> Software & Dienste</h2>
+        <h2><i class="fas fa-code" aria-hidden="true"></i> Software & Dienste</h2>
         <div class="stack-grid">
             <div class="stack-card">
                 <h3>Aktuell</h3>
                 <ul class="item-list">
-                    <li class="item"><i class="fab fa-docker"></i><div><div class="item-title">Docker</div><div class="item-meta">Container-Management</div></div></li>
-                    <li class="item"><i class="fas fa-server"></i><div><div class="item-title">Nginx</div><div class="item-meta">Reverse Proxy / Webserver</div></div></li>
-                    <li class="item"><i class="fas fa-cloud"></i><div><div class="item-title">Nextcloud</div><div class="item-meta">Cloud-Speicher</div></div></li>
-                    <li class="item"><i class="fas fa-brain"></i><div><div class="item-title">Lokale KI-Modelle</div><div class="item-meta">Text/Analyse/Unterstützung</div></div></li>
-                    <li class="item"><i class="fab fa-github"></i><div><div class="item-title">GitHub Pages</div><div class="item-meta">Projekthosting</div></div></li>
-                    <li class="item"><i class="fas fa-shield-alt"></i><div><div class="item-title">Cloudflare Tunnel</div><div class="item-meta">Sicherer Remote-Zugang</div></div></li>
-                    <li class="item"><i class="fas fa-network-wired"></i><div><div class="item-title">Tailscale</div><div class="item-meta">Mesh-VPN</div></div></li>
-                    <li class="item"><i class="fas fa-gamepad"></i><div><div class="item-title">Sunshine + Moonlight</div><div class="item-meta">Game-Streaming</div></div></li>
-                    <li class="item"><i class="fas fa-desktop"></i><div><div class="item-title">RustDesk</div><div class="item-meta">Remote-Desktop</div></div></li>
-                    <li class="item"><i class="fas fa-heartbeat"></i><div><div class="item-title">Uptime Kuma <span class="badge-compact badge--private" title="Nicht öffentlich zugänglich"><i class="fas fa-lock" aria-hidden="true"></i>Privat</span></div><div class="item-meta">Monitoring</div></div></li>
-                    <li class="item"><i class="fas fa-home"></i><div><div class="item-title">Home Assistant <span class="badge-compact badge--private" title="Nicht öffentlich zugänglich"><i class="fas fa-lock" aria-hidden="true"></i>Privat</span></div><div class="item-meta">Home Automation</div></div></li>
+                    <li class="item"><i class="fab fa-docker" aria-hidden="true"></i><div><div class="item-title">Docker</div><div class="item-meta">Container-Management</div></div></li>
+                    <li class="item"><i class="fas fa-server" aria-hidden="true"></i><div><div class="item-title">Nginx</div><div class="item-meta">Reverse Proxy / Webserver</div></div></li>
+                    <li class="item"><i class="fas fa-cloud" aria-hidden="true"></i><div><div class="item-title">Nextcloud</div><div class="item-meta">Cloud-Speicher</div></div></li>
+                    <li class="item"><i class="fas fa-brain" aria-hidden="true"></i><div><div class="item-title">Lokale KI-Modelle</div><div class="item-meta">Text/Analyse/Unterstützung</div></div></li>
+                    <li class="item"><i class="fab fa-github" aria-hidden="true"></i><div><div class="item-title">GitHub Pages</div><div class="item-meta">Projekthosting</div></div></li>
+                    <li class="item"><i class="fas fa-shield-alt" aria-hidden="true"></i><div><div class="item-title">Cloudflare Tunnel</div><div class="item-meta">Sicherer Remote-Zugang</div></div></li>
+                    <li class="item"><i class="fas fa-network-wired" aria-hidden="true"></i><div><div class="item-title">Tailscale</div><div class="item-meta">Mesh-VPN</div></div></li>
+                    <li class="item"><i class="fas fa-gamepad" aria-hidden="true"></i><div><div class="item-title">Sunshine + Moonlight</div><div class="item-meta">Game-Streaming</div></div></li>
+                    <li class="item"><i class="fas fa-desktop" aria-hidden="true"></i><div><div class="item-title">RustDesk</div><div class="item-meta">Remote-Desktop</div></div></li>
+                    <li class="item"><i class="fas fa-heartbeat" aria-hidden="true"></i><div><div class="item-title">Uptime Kuma <span class="badge-compact badge--private" title="Nicht öffentlich zugänglich"><i class="fas fa-lock" aria-hidden="true"></i>Privat</span></div><div class="item-meta">Monitoring</div></div></li>
+                    <li class="item"><i class="fas fa-home" aria-hidden="true"></i><div><div class="item-title">Home Assistant <span class="badge-compact badge--private" title="Nicht öffentlich zugänglich"><i class="fas fa-lock" aria-hidden="true"></i>Privat</span></div><div class="item-meta">Home Automation</div></div></li>
                 </ul>
             </div>
             <div class="stack-card">
                 <h3>Geplante Erweiterungen</h3>
                 <ul class="item-list">
-                    <li class="item"><i class="fas fa-network-wired"></i><div><div class="item-title">Intranet <span class="badge-compact">Coming Soon</span></div><div class="item-meta">Zentrale Verwaltungsoberfläche</div></div></li>
+                    <li class="item"><i class="fas fa-cogs" aria-hidden="true"></i><div><div class="item-title">n8n <span class="badge-compact">Coming Soon</span></div><div class="item-meta">Workflow-Automatisierung</div></div></li>
+                    <li class="item"><i class="fas fa-filter" aria-hidden="true"></i><div><div class="item-title">Pi-hole <span class="badge-compact">Coming Soon</span></div><div class="item-meta">DNS-Werbeblocker</div></div></li>
+                    <li class="item"><i class="fas fa-network-wired" aria-hidden="true"></i><div><div class="item-title">Intranet <span class="badge-compact">Coming Soon</span></div><div class="item-meta">Zentrale Verwaltungsoberfläche</div></div></li>
                 </ul>
             </div>
         </div>
@@ -253,13 +257,13 @@
     </section>
 
     <section id="netzwerk" class="anchor">
-        <h2><i class="fas fa-network-wired"></i> Netzwerk & Sicherheit</h2>
+        <h2><i class="fas fa-network-wired" aria-hidden="true"></i> Netzwerk & Sicherheit</h2>
         <div class="stack-grid">
             <div class="stack-card">
                 <ul class="item-list">
-                    <li class="item"><i class="fas fa-server"></i><div><div class="item-title">Nginx</div><div class="item-meta">Reverse Proxy / TLS / Routing</div></div></li>
-                    <li class="item"><i class="fas fa-shield-alt"></i><div><div class="item-title">Cloudflare Zero Trust</div><div class="item-meta">Zugriffsschutz und Policies</div></div></li>
-                    <li class="item"><i class="fas fa-lock"></i><div><div class="item-title">Tailscale VPN</div><div class="item-meta">Sicheres, privates Netzwerk</div></div></li>
+                    <li class="item"><i class="fas fa-server" aria-hidden="true"></i><div><div class="item-title">Nginx</div><div class="item-meta">Reverse Proxy / TLS / Routing</div></div></li>
+                    <li class="item"><i class="fas fa-shield-alt" aria-hidden="true"></i><div><div class="item-title">Cloudflare Zero Trust</div><div class="item-meta">Zugriffsschutz und Policies</div></div></li>
+                    <li class="item"><i class="fas fa-lock" aria-hidden="true"></i><div><div class="item-title">Tailscale VPN</div><div class="item-meta">Sicheres, privates Netzwerk</div></div></li>
                 </ul>
             </div>
         </div>
@@ -299,13 +303,13 @@
             a.setAttribute('rel', 'ar');
             a.title = isIOS ? 'In AR auf iPhone/iPad ansehen' : (isSafariOnMac ? '3D/AR in Safari ansehen' : 'AR (iOS) – Datei herunterladen');
             a.setAttribute('aria-label', 'In AR ansehen');
-            a.innerHTML = '<i class="fas fa-cube"></i><span>AR</span>';
+            a.innerHTML = '<i class="fas fa-cube" aria-hidden="true"></i><span>AR</span>';
             actions.appendChild(a);
           } else if (arPlanned) {
             const span = document.createElement('span');
             span.className = 'btn-icon disabled';
             span.title = 'AR-Modell geplant';
-            span.innerHTML = '<i class="fas fa-cube"></i><span>AR bald</span>';
+            span.innerHTML = '<i class="fas fa-cube" aria-hidden="true"></i><span>AR bald</span>';
             actions.appendChild(span);
           }
         });
