@@ -30,7 +30,7 @@
 
 - 252425 Cloud: https://mynextcloud.252425.xyz
 - 252425 AI: https://ai.252425.xyz
-- Weitere Dienste geplant: Home Assistant, Uptime Kuma, Intranet
+- Weitere Dienste geplant: Intranet
 
 ## HOMELAB
 

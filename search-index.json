@@ -3,13 +3,13 @@
     "title": "Startseite",
     "url": "index.html",
     "description": "Überblick über Projekte, Dienste und Highlights des 252425 Homelabs.",
-    "content": "Willkommen im 252425 Homelab. Die Startseite stellt alle Homelab-Dienste wie 252425 Cloud auf Nextcloud-Basis, 252425 AI für lokale KI, Home Assistant, n8n Automatisierung, Uptime Kuma Monitoring, Pi-hole DNS Filter und das Intranet vor. Zusätzlich gibt es einen Überblick über Projekte wie den Hacking Escape Room, die A-Ultra Website, MenuPy, den Homelab Code sowie den 252425 Homelab Blog. Spotlight-Abschnitte verlinken auf den HOMELAB, den Blog und MenuPy, während Hinweise auf Support, FAQ, Kontakt und die Sitemap führen."
+    "content": "Willkommen im 252425 Homelab. Die Startseite stellt alle Homelab-Dienste wie 252425 Cloud auf Nextcloud-Basis, 252425 AI für lokale KI und das geplante Intranet vor. Zusätzlich gibt es einen Überblick über Projekte wie den Hacking Escape Room, die A-Ultra Website, MenuPy, den Homelab Code sowie den 252425 Homelab Blog. Spotlight-Abschnitte verlinken auf den HOMELAB, den Blog und MenuPy, während Hinweise auf Support, FAQ, Kontakt und die Sitemap führen."
   },
   {
     "title": "HOMELAB",
     "url": "index.html",
     "description": "Hardware-, Software- und Netzwerkaufbau des 252425 Homelabs.",
-    "content": "Die HOMELAB-Seite dokumentiert Server und Hardware wie den PC \"Super AI\" mit RTX 4060 Ti und Ryzen 5 5600, einen iMac M1 für stromsparende KI, den Raspberry Pi 5 für die Nextcloud sowie geplante Ergänzungen mit Mac mini, Apple TV 4K und Raspberry Pi 4. Softwareseitig kommen Docker, Nextcloud, lokale KI-Modelle, GitHub Pages, Cloudflare Tunnel, Tailscale VPN, Home Assistant, n8n und Moonlight mit Sunshine zum Einsatz. Der Netzwerkbereich beschreibt Glasfaser-Uplink, 10GbE-Switching, Zero-Trust-Absicherung, Cloudflare Tunnel für Remote-Zugriff und Tailscale für VPN-Verbindungen."
+    "content": "Die HOMELAB-Seite dokumentiert Server und Hardware wie den PC \"Super AI\" mit RTX 4060 Ti und Ryzen 5 5600, einen iMac M1 für stromsparende KI, den Raspberry Pi 5 für die Nextcloud sowie geplante Ergänzungen mit Mac mini, Apple TV 4K und Raspberry Pi 4. Softwareseitig kommen Docker, Nextcloud, lokale KI-Modelle, GitHub Pages, Cloudflare Tunnel, Tailscale VPN und Moonlight mit Sunshine zum Einsatz. Der Netzwerkbereich beschreibt Glasfaser-Uplink, 10GbE-Switching, Zero-Trust-Absicherung, Cloudflare Tunnel für Remote-Zugriff und Tailscale für VPN-Verbindungen."
   },
   {
     "title": "Support",
@@ -21,7 +21,7 @@
     "title": "FAQ",
     "url": "faq.html",
     "description": "Häufig gestellte Fragen zu Homelab, Hardware, Software und KI.",
-    "content": "Die FAQ erklärt das Ziel des 252425 Homelabs, warum der Name 252425 gewählt wurde und wie man das Setup nachbauen kann. Antworten behandeln den Zugriff auf Dienste über Cloudflare Tunnel, den Fokus auf Lernen und Experimente sowie Hardware wie den Super-AI-PC mit RTX 4060 Ti, den iMac M1 und den Raspberry Pi 5. Es werden Netzwerkinformationen mit Glasfaser-Backbone, Zero-Trust-Schutz, Cloudflare Tunnel und Tailscale VPN beschrieben. Softwarefragen decken Docker, Nextcloud, lokale KI-Modelle, GitHub Pages, Home Assistant und n8n ab. Datenschutz und Sicherheit werden mit lokaler Datenspeicherung und Verschlüsselung erläutert, während KI-Abschnitte lokale Modelle, Home-Assistant-Automatisierung und n8n-Workflows hervorheben."
+    "content": "Die FAQ erklärt das Ziel des 252425 Homelabs, warum der Name 252425 gewählt wurde und wie man das Setup nachbauen kann. Antworten behandeln den Zugriff auf Dienste über Cloudflare Tunnel, den Fokus auf Lernen und Experimente sowie Hardware wie den Super-AI-PC mit RTX 4060 Ti, den iMac M1 und den Raspberry Pi 5. Es werden Netzwerkinformationen mit Glasfaser-Backbone, Zero-Trust-Schutz, Cloudflare Tunnel und Tailscale VPN beschrieben. Softwarefragen decken Docker, Nextcloud, lokale KI-Modelle und GitHub Pages ab. Datenschutz und Sicherheit werden mit lokaler Datenspeicherung und Verschlüsselung erläutert, während KI-Abschnitte lokale Modelle in unterschiedlichen Leistungsklassen hervorheben."
   },
   {
     "title": "Kontakt",
