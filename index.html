@@ -312,6 +312,34 @@
             transform: scale(1.05);
             border-color: rgba(255, 255, 255, 0.2);
         }
+        .card--menupy p {
+            margin-bottom: 0.6rem;
+        }
+        .card--menupy .button-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            align-items: center;
+            margin-top: 0.35rem;
+        }
+        .card--menupy .button-row a {
+            display: block;
+            width: 100%;
+            max-width: 220px;
+            margin: 0;
+        }
+        .card--code-editor .button-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            align-items: center;
+            margin-top: 0.3rem;
+        }
+        .card--code-editor .button-row a {
+            margin: 0;
+            width: 100%;
+            max-width: 220px;
+        }
         .card-logo {
             width: 50px;
             height: 50px;
@@ -1149,11 +1177,23 @@
                 <a href="https://github.com/Anes-03/Markdown-WebEditor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
             </div>
 
-            <div class="card">
+            <div class="card card--code-editor">
+                <h3>Code WebEditor</h3>
+                <span class="badge-compact badge--success">Neu</span>
+                <p>Browserbasierter Code-Editor mit Live-Vorschau, Dateiverwaltung und optionalem Gemini-Chat. Startest mit Beispiel- oder leerem Projekt, importierst Dateien oder ganze Ordner (File System Access), speicherst alles lokal im Browser und siehst Logs sofort in der integrierten Konsole – ideal für schnelle HTML/CSS/JS-Prototypen ohne Dev-Server.</p>
+                <div class="button-row">
+                    <a href="https://code-webeditor.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                    <a href="https://github.com/Anes-03/Code-WebEditor" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                </div>
+            </div>
+
+            <div class="card card--menupy">
                 <h3>MenuPy</h3>
                 <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
-                <a href="https://menupy.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
-                <a href="https://github.com/Anes-03/MenuPy" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                <div class="button-row">
+                    <a href="https://menupy.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                    <a href="https://github.com/Anes-03/MenuPy" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                </div>
             </div>
         </div>
     </section>
