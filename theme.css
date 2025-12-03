@@ -24,6 +24,8 @@
     --badge-danger-bg: rgba(239, 68, 68, 0.20);
     --badge-danger-border: rgba(239, 68, 68, 0.55);
     --badge-danger-text: #fecaca;
+    --snow-color: rgba(255, 255, 255, 0.9);
+    --snow-glow: rgba(255, 255, 255, 0.55);
 }
 
 [data-theme="light"] {
@@ -51,6 +53,8 @@
     --badge-danger-bg: rgba(239, 68, 68, 0.12);
     --badge-danger-border: rgba(239, 68, 68, 0.35);
     --badge-danger-text: #991b1b;
+    --snow-color: rgba(124, 144, 173, 0.85);
+    --snow-glow: rgba(124, 144, 173, 0.45);
 }
 
 [data-theme="pitch"] {
@@ -78,4 +82,55 @@
     --badge-danger-bg: rgba(239, 68, 68, 0.18);
     --badge-danger-border: rgba(239, 68, 68, 0.5);
     --badge-danger-text: #fee2e2;
+    --snow-color: rgba(255, 255, 255, 0.92);
+    --snow-glow: rgba(255, 255, 255, 0.6);
+}
+
+/* Snow overlay */
+.snow-overlay {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.snow-overlay.active {
+    opacity: 1;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10vh;
+    left: 0;
+    width: var(--flake-size, 2px);
+    height: var(--flake-size, 2px);
+    border-radius: 50%;
+    background: var(--snow-color);
+    box-shadow: 0 0 6px var(--snow-glow);
+    animation: snow-fall linear infinite;
+    animation-duration: var(--flake-duration, 12s);
+    animation-delay: var(--flake-delay, 0s);
+    animation-play-state: paused;
+    opacity: 0;
+}
+
+.snow-overlay.active .snowflake {
+    animation-play-state: running;
+}
+
+@keyframes snow-fall {
+    0% {
+        transform: translate3d(var(--flake-x-start, 50vw), -10vh, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate3d(calc(var(--flake-x-start, 50vw) + var(--flake-drift, 0px)), 110vh, 0);
+        opacity: 0;
+    }
 }
