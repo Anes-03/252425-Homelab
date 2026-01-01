@@ -31,14 +31,6 @@
 - 252425 AI: https://ai.252425.xyz
 - Weitere Dienste geplant: Intranet
 
-## HOMELAB
-
-- HTML5, CSS3, JavaScript (Vanilla)
-- Icons: Font Awesome (CDN)
-- Hosting: Cloudflare Pages/Workers (konfiguriert über `wrangler.toml`)
-- Domain: `CNAME` zeigt auf 252425.xyz
-- GitHub als Source of Truth, Deployments erfolgen direkt aus dem Main-Branch
-
 ## Projektstruktur (Kurz)
 
 - Seiten: `index.html`, `support.html`, `faq.html`, `kontakt.html`, `sitemap.html`
