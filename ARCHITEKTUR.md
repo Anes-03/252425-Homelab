@@ -1,21 +1,19 @@
-# Architektur & Dokumentation – 252425 Homelab
+# Architektur & Dokumentation – 252425 HOMELAB
 
 Diese Datei beschreibt Struktur, Komponenten und Abläufe der statischen Website. Sie ergänzt das Repository-README um technische Details.
 
 ## Verzeichnisstruktur (Top-Level)
-- `index.html`, `faq.html`, `support.html`, `kontakt.html`, `index.html` – Hauptseiten.
+- `index.html`, `faq.html`, `support.html`, `kontakt.html` – Hauptseiten.
 - `navbar.html`, `footer.html` – Inkludierte Layout-Bausteine.
 - `theme.css`, `navbar.css`, `footer.css`, `form-styles.css` – Stylesheets.
 - `theme.js`, `navbar.js`, `load-navbar.js`, `footer.js`, `modal.js`, `auto-modal.js`, `search.js`, `blog-preview.js`, `support.js` – Client-Skripte.
 - `search-index.json` – Datenquelle für die On-Site-Suche.
-- `ar-models/` – Platz für GLB/USdz-Modelle.
 - `sitemap.*`, `robots.txt`, `ai.txt`, `CNAME`, `wrangler.toml` – Meta- und Deployment-Dateien.
 
 ## Seitenaufbau
 Jede Seite enthält einen Platzhalter für Navigation (`<div id="navbar-placeholder">`) sowie Footer (`<div id="footer-container">`). Die Inhalte der Seiten konzentrieren sich auf Sections mit Kartenlayouts und Callouts.
 
 - **Index**: Startkarten für Dienste & Projekte, Spotlight-Modals, FAQ-Auszug, Blog-Vorschau und Kontaktmöglichkeiten.
-- **HOMELAB**: Tabellarische Auflistung nach Kategorien (Hardware, Software, Netzwerk, Monitoring, Backups, Roadmap).
 - **Support**: Formular mit Input-Feldern, Auswahl der Problemkategorie und direkter Mailto-Auslösung.
 - **FAQ**: Accordion-/Cardstruktur für Fragen und Antworten.
 - **Kontakt**: Kontaktdaten, Social Links, PGP-Informationen.
@@ -77,9 +75,7 @@ Jede Seite enthält einen Platzhalter für Navigation (`<div id="navbar-placehol
 - **Neue Seiten**: HTML-Datei im Root anlegen, Platzhalter für Navbar/Footer integrieren, `search-index.json` und ggf. `sitemap.*` aktualisieren.
 - **Weitere Modals**: HTML-Struktur kopieren, `id` vergeben, `data-modal` oder `auto-spotlight`-Klassen ergänzen.
 - **Blog-Feeds**: Falls der externe Blog umzieht, die URLs in `SOURCES` (in `blog-preview.js`) anpassen.
-- **AR-Modelle**: Modelle im `ar-models/`-Verzeichnis ablegen und in `index.html` referenzieren.
 - **Crawler-Policies**: `robots.txt` und `ai.txt` pflegen, um Zugriff von Bots/AI zu steuern.
 
 ## Tests
 - Aufgrund der statischen Natur existieren keine automatisierten Tests. Manuelle Smoke-Tests: Navigation, Theme-Switcher, Modals, Suche, Supportformular, Blog-Vorschau.
-

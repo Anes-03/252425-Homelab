@@ -1,7 +1,7 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-The site is a static bundle served from the repository root. Top-level HTML entry points such as `index.html`, `index.html`, `support.html`, `faq.html`, and `kontakt.html` pull in shared fragments. Reusable layout pieces live in `navbar.html`, `footer.html`, their companion CSS files, and loader scripts (`load-navbar.js`, `footer.js`). Interactive behaviour is kept in focused modules (`theme.js`, `modal.js`, `auto-modal.js`, `search.js`). Media and 3D assets sit under `ar-models/`, while long-form references and design rationales live in `docs/`. Keep any new assets alongside their feature to simplify static hosting.
+The site is a static bundle served from the repository root. Top-level HTML entry points such as `index.html`, `support.html`, `faq.html`, and `kontakt.html` pull in shared fragments. Reusable layout pieces live in `navbar.html`, `footer.html`, their companion CSS files, and loader scripts (`load-navbar.js`, `footer.js`). Interactive behaviour is kept in focused modules (`theme.js`, `modal.js`, `auto-modal.js`, `search.js`). Long-form references and design rationales live in `docs/`. Keep any new assets alongside their feature to simplify static hosting.
 
 ## Build, Test, and Development Commands
 - `python3 -m http.server 8000` — Serve the site locally from the repository root for quick validation.

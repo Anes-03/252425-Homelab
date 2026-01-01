@@ -1,6 +1,6 @@
-# 252425 Homelab
+# 252425 HOMELAB
 
-252425 Homelab ist eine persönliche, statische Website, auf der ich mein Homelab, Projekte und eigene Dienste (z. B. Cloud und KI) vorstelle. Die Seite ist komplett in HTML, CSS und Vanilla JavaScript umgesetzt, responsiv gestaltet und unterstützt mehrere Farbmodi. Inhalte sind derzeit auf Deutsch, optional kann eine englische Variante bereitgestellt werden.
+252425 HOMELAB ist eine persönliche, statische Website, auf der ich mein HOMELAB, Projekte und eigene Dienste (z. B. Cloud und KI) vorstelle. Die Seite ist komplett in HTML, CSS und Vanilla JavaScript umgesetzt, responsiv gestaltet und unterstützt mehrere Farbmodi. Inhalte sind derzeit auf Deutsch, optional kann eine englische Variante bereitgestellt werden.
 
 ## Live
 
@@ -9,10 +9,9 @@
 
 ## Inhalte & Seiten
 
-- **Home (`index.html`)**: Übersicht über Homelab-Dienste, Projekte, aktuelle Highlights, Karten mit Detailmodals und Blog-Preview.
-- **HOMELAB (`index.html`)**: Hardware, Software, Netzwerk- und Sicherheitskomponenten, geplante Erweiterungen sowie AR/3D-Modelle.
+- **Home (`index.html`)**: Übersicht über HOMELAB-Dienste, Projekte, aktuelle Highlights, Karten mit Detailmodals und Blog-Preview.
 - **Support (`support.html`)**: Formular für Supportanfragen per E‑Mail inklusive Mailto-Generator (`support.js`).
-- **FAQ (`faq.html`)**: Antworten auf häufige Fragen rund um Homelab, Datenschutz und organisatorische Themen.
+- **FAQ (`faq.html`)**: Antworten auf häufige Fragen rund um HOMELAB, Datenschutz und organisatorische Themen.
 - **Kontakt (`kontakt.html`)**: Kontaktmöglichkeiten, Social Links und PGP-Hinweise.
 - **Sitemap (`sitemap.html` & `sitemap.xml`)**: Besucher- und Crawler-Übersichten.
 - **Richtlinien (`robots.txt`, `ai.txt`)**: Steuerung von Suchmaschinen- und KI-Crawlern.
@@ -42,9 +41,9 @@
 
 ## Projektstruktur (Kurz)
 
-- Seiten: `index.html`, `index.html`, `support.html`, `faq.html`, `kontakt.html`, `sitemap.html`
+- Seiten: `index.html`, `support.html`, `faq.html`, `kontakt.html`, `sitemap.html`
 - Komponenten/Assets: `navbar.html`, `footer.html`, `navbar.css`, `footer.css`, `theme.css`, `theme.js`, `modal.js`, `auto-modal.js`, `load-navbar.js`, `search.js`
-- Daten: `search-index.json`, `ar-models/`, `blog-preview.js`
+- Daten: `search-index.json`, `blog-preview.js`
 - Medien: `banner.jpeg`, Favicons/Icons, `logo.jpeg`
 
 ## Lokale Entwicklung
