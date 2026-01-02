@@ -210,12 +210,26 @@
         // Helper: namespace-agnostic child lookup by localName
         const firstChildByLocalName = (parent, names) => {
             const set = new Set(names);
-            const els = parent.children || [];
+            const els = parent.childNodes || [];
             for (let i = 0; i < els.length; i++) {
                 const el = els[i];
+                if (!el || el.nodeType !== 1) continue;
                 if (set.has(el.localName)) return el;
             }
             return null;
+        };
+        const firstTextByLocalName = (parent, names) => {
+            const els = parent.childNodes || [];
+            for (const name of names) {
+                for (let i = 0; i < els.length; i++) {
+                    const el = els[i];
+                    if (!el || el.nodeType !== 1) continue;
+                    if (el.localName !== name) continue;
+                    const text = (el.textContent || '').trim();
+                    if (text) return text;
+                }
+            }
+            return '';
         };
 
         const items = Array.from(doc.querySelectorAll('item, entry')).map((node) => {
@@ -235,7 +249,10 @@
 
             // Description/summary (namespace-agnostic)
             let description = node.querySelector('description, summary, content')?.textContent || '';
-            if (!description) description = firstChildByLocalName(node, ['description', 'summary', 'content'])?.textContent || '';
+            description = description.trim();
+            if (!description) {
+                description = firstTextByLocalName(node, ['summary', 'description', 'content']);
+            }
 
             // Published/updated
             let published = node.querySelector('pubDate, updated, published')?.textContent || '';
@@ -324,6 +341,11 @@
         const title = document.createElement('h3');
         title.textContent = post.title;
 
+        const summaryText = truncate(stripHtml(post.description), 180);
+        const summary = document.createElement('p');
+        summary.className = 'blog-preview-summary';
+        summary.textContent = summaryText;
+
         const meta = document.createElement('p');
         meta.className = 'blog-preview-date';
         const formattedDate = formatDate(post.published);
@@ -347,7 +369,11 @@
             link.append(imageWrapper);
         }
 
-        link.append(title, meta);
+        if (summaryText) {
+            link.append(title, summary, meta);
+        } else {
+            link.append(title, meta);
+        }
         article.append(link);
         return article;
     };
