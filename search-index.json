@@ -2,8 +2,14 @@
   {
     "title": "Startseite",
     "url": "index.html",
-    "description": "Überblick über Projekte, Dienste und Highlights des 252425 HOMELABs.",
-    "content": "Willkommen im 252425 HOMELAB. Die Startseite stellt alle HOMELAB-Dienste wie 252425 Cloud auf Nextcloud-Basis und 252425 AI für lokale KI vor. Zusätzlich gibt es einen Überblick über Projekte wie den Hacking Escape Room, die A-Ultra Website, den HOMELAB Code sowie 252425 Anwendungen wie den Markdown WebEditor, Code WebEditor und MenuPy sowie den 252425 HOMELAB Blog. Spotlight-Abschnitte verlinken auf den Blog und MenuPy, während Hinweise auf Support, FAQ, Kontakt und die Sitemap führen."
+    "description": "Überblick über HOMELAB-Dienste, Blog-Preview und den Weg zur Projektseite.",
+    "content": "Willkommen im 252425 HOMELAB. Die Startseite stellt die HOMELAB-Dienste wie 252425 Cloud auf Nextcloud-Basis und 252425 AI für lokale KI vor, zeigt einen Blog-Preview und verweist auf die Projektübersicht. Hinweise auf Support, FAQ, Kontakt und die Sitemap führen zu den wichtigsten Anlaufstellen."
+  },
+  {
+    "title": "Projekte",
+    "url": "projekte.html",
+    "description": "Projektübersicht in Kategorien: HOMELAB, Schulprojekte, In Arbeit und Just for fun.",
+    "content": "Die Projektseite bündelt Homelab-Projekte wie 252425 HOMELAB, Markdown WebEditor, Code WebEditor und MenuPy. Schul- und Archivprojekte umfassen den Hacking Escape Room und den Escape Room zu The Picture of Dorian Gray. In Arbeit ist die A-Ultra Website, während Just-for-fun-Experimente als kleine Spielereien gesammelt werden."
   },
   {
     "title": "Support",

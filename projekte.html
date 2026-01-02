@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Projektübersicht des 252425 HOMELAB: Homelab-Projekte, Schulprojekte, In-Arbeit und Just-for-fun-Experimente.">
+    <link rel="canonical" href="https://252425.xyz/projekte.html">
+
+    <title>Projekte – 252425 HOMELAB</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Standard-Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" sizes="32x32" href="favicon-32x32.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="favicon-16x16.png" type="image/png">
+
+    <!-- Footer CSS -->
+    <link rel="stylesheet" href="footer.css">
+    <!-- Navbar CSS -->
+    <link rel="stylesheet" href="navbar.css">
+    <!-- Theme Variables -->
+    <link rel="stylesheet" href="theme.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top: 70px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 16px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        header {
+            background: linear-gradient(to bottom, var(--header-bg), var(--bg-color));
+            color: var(--text-color);
+            text-align: center;
+            padding: 1.5rem 1rem;
+            margin-top: 0;
+        }
+        header h1 {
+            font-size: clamp(1.6rem, 5vw, 2.5rem);
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, var(--title-gradient-start), var(--title-gradient-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            font-size: clamp(0.95rem, 3vw, 1.1rem);
+            margin: 0.5rem auto 0;
+            max-width: 820px;
+            padding: 0 1rem;
+            line-height: 1.4;
+        }
+        section {
+            padding: 1.5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        section h2 {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            margin-bottom: 0.6rem;
+            text-align: center;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .section-lead {
+            text-align: center;
+            margin: 0 auto 1rem;
+            max-width: 780px;
+            font-size: clamp(0.9rem, 2.6vw, 1.05rem);
+            color: var(--text-color);
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+        .cards-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            box-sizing: border-box;
+        }
+        @media (min-width: 600px) {
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0;
+            }
+        }
+        @media (min-width: 900px) {
+            .cards-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            padding: 1.2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .card h3 {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            margin-bottom: 0.8rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+        .card p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+        .card a {
+            display: block;
+            margin: 0.3rem auto;
+            padding: 0.6rem 1rem;
+            background-color: var(--button-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            width: 100%;
+            max-width: 220px;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
+            font-size: clamp(0.85rem, 2vw, 1rem);
+        }
+        .card a:hover {
+            background-color: var(--button-hover);
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        .card-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.35rem;
+            width: 100%;
+        }
+        .card-actions a {
+            margin: 0;
+        }
+        .card-actions .button-row {
+            margin-top: 0;
+        }
+        .card--menupy p {
+            margin-bottom: 0.6rem;
+        }
+        .card--menupy .button-row,
+        .card--code-editor .button-row {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            align-items: center;
+            margin-top: 0.35rem;
+        }
+        .card--code-editor .button-row {
+            gap: 0.25rem;
+            margin-top: 0.3rem;
+        }
+        .card--menupy .button-row a,
+        .card--code-editor .button-row a {
+            display: block;
+            width: 100%;
+            max-width: 220px;
+            margin: 0;
+        }
+        .card-logo {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 0.75rem;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .card-note {
+            margin-top: 0.6rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        .badge-compact {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.02em;
+            padding: 2px 8px;
+            border-radius: 999px;
+            background: var(--badge-bg);
+            border: 1px solid var(--badge-border);
+            color: var(--badge-text);
+            line-height: 1.4;
+        }
+        .badge-compact.badge--success {
+            background: var(--badge-success-bg);
+            border-color: var(--badge-success-border);
+            color: var(--badge-success-text);
+        }
+        .badge-compact.badge--warning {
+            background: var(--badge-warning-bg);
+            border-color: var(--badge-warning-border);
+            color: var(--badge-warning-text);
+        }
+        .badge-compact i { margin-right: 0.35em; }
+        .card .badge-compact {
+            margin-top: 0.35rem;
+            align-self: center;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 90%;
+        }
+        .theme-switch {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background: var(--button-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            color: var(--text-color);
+            font: inherit;
+            padding: 0;
+        }
+        .theme-switch:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .theme-switch:focus-visible {
+            outline: 2px solid #9ca3ff;
+            outline-offset: 3px;
+        }
+        .theme-switch svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--text-color);
+        }
+        @media (max-width: 600px) {
+            .theme-switch {
+                bottom: 80px;
+            }
+        }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+    <div id="navbar-placeholder"></div>
+
+    <button type="button" class="theme-switch" id="themeSwitch" aria-haspopup="true" aria-expanded="false" aria-controls="themeMenu" aria-label="Theme wechseln">
+        <span class="visually-hidden">Theme wechseln</span>
+        <svg id="themeIcon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/>
+        </svg>
+    </button>
+
+    <main id="main-content" tabindex="-1">
+        <header>
+            <h1>Projekte</h1>
+            <p>Meine Projekte sind hier gebündelt und nach Fokus sortiert: HOMELAB, Schulprojekte, In Arbeit und Just for fun.</p>
+        </header>
+
+        <section id="homelab-projekte">
+            <h2>HOMELAB Projekte</h2>
+            <p class="section-lead">Alles, was direkt mit dem 252425 HOMELAB und seinen Tools verbunden ist.</p>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="App Icon Markdown Webeditor (Logo).png" alt="Markdown WebEditor Logo" class="card-logo" loading="lazy">
+                    <h3>Markdown WebEditor</h3>
+                    <p>Ein komplett clientseitiger Markdown‑Editor, der offline im Browser läuft – ohne Registrierung und ohne Server. Bietet Live‑Vorschau, Editor/Split/Reader‑Ansicht, Drag & Drop, Import (PDF/DOCX) und Export (HTML/PDF), Themes, Shortcuts sowie optionale KI‑Assistenz über konfigurierbare Anbieter.</p>
+                    <div class="card-actions">
+                        <a href="https://markdown-webeditor.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                        <a href="https://github.com/Anes-03/Markdown-WebEditor" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card--menupy">
+                    <img src="App Icon MenuPy (Logo).png" alt="MenuPy Logo" class="card-logo" loading="lazy">
+                    <h3>MenuPy</h3>
+                    <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
+                    <div class="card-actions">
+                        <div class="button-row">
+                            <a href="https://menupy.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                            <a href="https://github.com/Anes-03/MenuPy" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <img src="logo.jpeg" alt="252425 HOMELAB Logo" class="card-logo" loading="lazy">
+                    <h3><i class="fas fa-laptop-code" aria-hidden="true"></i> 252425 HOMELAB</h3>
+                    <p>Mein Herzstück für alle selbstgehosteten Dienste – von der 252425 Cloud (Nextcloud) über 252425 AI bis hin zu zentralen Workflows. Ein Ort, an dem neue Ideen entstehen und zuverlässig für den Alltag bereitstehen.</p>
+                    <div class="card-actions">
+                        <a href="https://github.com/Anes-03/HOMELAB" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="in-arbeit">
+            <h2>In Arbeit</h2>
+            <p class="section-lead">Projekte, die gerade aktiv wachsen oder noch nicht abgeschlossen sind.</p>
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-cloud-sun-rain" aria-hidden="true"></i> 252425 Wetter</h3>
+                    <span class="badge-compact badge--warning">In Arbeit</span>
+                    <p>Modernes, rein statisches Wetter-Dashboard auf Basis der Open‑Meteo APIs. Zeigt aktuelle Bedingungen, 7‑Tage‑Trend, stündliche Grafik, Luftqualität und astronomische Daten für beliebige Städte.</p>
+                    <div class="card-actions">
+                        <a href="https://wetter.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                        <a href="https://github.com/Anes-03/252425-Wetter" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card card--code-editor">
+                    <h3>Code WebEditor</h3>
+                    <span class="badge-compact badge--success">Neu</span>
+                    <p>Browserbasierter Code-Editor mit Live-Vorschau, Dateiverwaltung und optionalem Gemini-Chat. Startest mit Beispiel- oder leerem Projekt, importierst Dateien oder ganze Ordner (File System Access), speicherst alles lokal im Browser und siehst Logs sofort in der integrierten Konsole – ideal für schnelle HTML/CSS/JS-Prototypen ohne Dev-Server.</p>
+                    <div class="card-actions">
+                        <div class="button-row">
+                            <a href="https://code-webeditor.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                            <a href="https://github.com/Anes-03/Code-WebEditor" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-video" aria-hidden="true"></i> A-Ultra Website</h3>
+                    <span class="badge-compact badge--warning">In Arbeit</span>
+                    <p>A-Ultra ist der YouTube-Kanal für Technik-Tipps und Schritt-für-Schritt-Anleitungen. Hier findest du einfache Lösungen zu verschiedenen Technik-Themen, ideal für alle, die mehr über Smartphones, Controller und barrierefreie Funktionen erfahren möchten. Diese Inhalte werden bald auch auf einer Webseite verfügbar sein, um noch mehr Menschen zu erreichen.</p>
+                    <div class="card-actions">
+                        <a href="https://aultra.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                        <a href="https://github.com/A-Ultra/A-Ultra-Website" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="archiv-projekte">
+            <h2>Schul- und Archivprojekte</h2>
+            <p class="section-lead">Ältere Projekte aus der Schulzeit oder aus früheren Experimenten.</p>
+            <div class="cards-container">
+                <div class="card">
+                    <h3><i class="fas fa-lock" aria-hidden="true"></i> Hacking Escape Room</h3>
+                    <p>Ein interaktiver Escape Room, bei dem du deine Hacking- und Problemlösungsfähigkeiten testen kannst.</p>
+                    <p><strong>Jahr:</strong> 2024</p>
+                    <div class="card-actions">
+                        <a href="https://hackingescaperoom.tech" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                        <a href="https://riddle.hackingescaperoom.tech" target="_blank"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Riddle</a>
+                        <a href="https://github.com/HackingEscapeRoom/Hacking-Escape-Room" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fas fa-book" aria-hidden="true"></i> Escape Room: The Picture of Dorian Gray</h3>
+                    <p>Ein Escape Room basierend auf "The Picture of Dorian Gray". Löst Rätsel, die mit der Geschichte des Buches verbunden sind, um zu entkommen.</p>
+                    <p><strong>Jahr:</strong> 2022</p>
+                    <div class="card-actions">
+                        <a href="https://github.com/Anes-03/Escape-Room-The-Picture-of-Dorian-Gray" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                        <a href="https://anes-03.github.io/Escape-Room-The-Picture-of-Dorian-Gray/" target="_blank"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Riddle 1</a>
+                        <a href="https://anes-03.github.io/Escape-Room-The-Picture-of-Dorian-Gray/2r2hinweis" target="_blank"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Riddle 5</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="just-for-fun">
+            <h2>Just for fun</h2>
+            <p class="section-lead">Kleine Spielereien, Prototypen und Experimente ohne großen Druck.</p>
+            <div class="cards-container">
+                <div class="card">
+                    <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="Hacker Adventskalender Logo" class="card-logo" loading="lazy">
+                    <h3><i class="fas fa-calendar-days" aria-hidden="true"></i> HACKER ADVENTSKALENDER 2025</h3>
+                    <p>Interaktiver Adventskalender mit 31 Security-Türchen, kompakten Lessons und Mini-Games im Retro-Cyber-Look. Jede Karte bringt ein neues Thema von Recon bis Social Engineering und lässt dich Wissen direkt testen. Der Fortschritt bleibt lokal im Browser gespeichert – ideal fürs Homelab-Training ohne Backend.</p>
+                    <div class="card-actions">
+                        <a href="https://adventskalender-2025.hackingescaperoom.tech" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
+                        <a href="https://github.com/Anes-03/Hacking-Adventskalender-2025" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="search.js"></script>
+    <script src="load-navbar.js"></script>
+    <script src="footer.js"></script>
+    <script src="theme.js"></script>
+</body>
+</html>

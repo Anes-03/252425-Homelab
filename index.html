@@ -178,6 +178,11 @@
             gap: 1rem;
             width: 100%;
         }
+        .blog-preview-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
         .blog-preview-card {
             background: var(--card-bg);
             border-radius: 12px;
@@ -1025,6 +1030,21 @@
         <p>Dies ist mein persönliches Projekt, in dem ich mit verschiedenen Technologien experimentiere und mein Wissen erweitere. Schau dir die verschiedenen Dienste und Tools an, die ich hier betreibe.</p>
     </header>
 
+    <section class="blog-preview-section" aria-labelledby="blog-preview-title">
+        <div class="blog-preview-header">
+            <h2 id="blog-preview-title"><span>252425 HOMELAB BLOG</span></h2>
+        </div>
+        <div class="blog-preview-grid" id="blog-preview-grid" aria-live="polite">
+            <p class="blog-preview-status" data-blog-status>Blogbeiträge werden geladen …</p>
+        </div>
+        <div class="blog-preview-cta">
+            <a class="blog-preview-link" href="https://blog.252425.xyz" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+                Alle Beiträge
+            </a>
+        </div>
+    </section>
+
     <section>
         <h2>Meine HOMELAB-Dienste</h2>
         <div class="cards-container">
@@ -1041,86 +1061,15 @@
         </div>
     </section>
 
-    <section class="blog-preview-section" aria-labelledby="blog-preview-title">
-        <div class="blog-preview-header">
-            <h2 id="blog-preview-title"><i class="fas fa-rss" aria-hidden="true"></i><span>252425 HOMELAB Blog</span></h2>
-            <a class="blog-preview-link" href="https://blog.252425.xyz" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-external-link-alt" aria-hidden="true"></i>
-                Alle Beiträge
-            </a>
-        </div>
-        <div class="blog-preview-grid" id="blog-preview-grid" aria-live="polite">
-            <p class="blog-preview-status" data-blog-status>Blogbeiträge werden geladen …</p>
-        </div>
-    </section>
-
     
 
     <section>
-        <h2>Meine Projekte</h2>
+        <h2>Projekt-Übersicht</h2>
         <div class="cards-container">
             <div class="card">
-                <h3><i class="fas fa-lock" aria-hidden="true"></i> Hacking Escape Room</h3>
-                <p>Ein interaktiver Escape Room, bei dem du deine Hacking- und Problemlösungsfähigkeiten testen kannst.</p>
-                <p><strong>Jahr:</strong> 2024</p>
-                <a href="https://hackingescaperoom.tech" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
-                <a href="https://riddle.hackingescaperoom.tech" target="_blank"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Riddle</a>
-                <a href="https://github.com/HackingEscapeRoom/Hacking-Escape-Room" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-video" aria-hidden="true"></i> A-Ultra Website</h3>
-                <p>A-Ultra ist der YouTube-Kanal für Technik-Tipps und Schritt-für-Schritt-Anleitungen. Hier findest du einfache Lösungen zu verschiedenen Technik-Themen, ideal für alle, die mehr über Smartphones, Controller und barrierefreie Funktionen erfahren möchten. Diese Inhalte werden bald auch auf einer Webseite verfügbar sein, um noch mehr Menschen zu erreichen.</p>
-                <p><strong>Preview</strong></p>
-                <a href="https://aultra.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> zur Webseite</a>
-                <a href="https://github.com/A-Ultra/A-Ultra-Website" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-laptop-code" aria-hidden="true"></i> 252425 HOMELAB</h3>
-                <p>Mein Herzstück für alle selbstgehosteten Dienste – von der 252425 Cloud (Nextcloud) über 252425 AI bis hin zu zentralen Workflows. Ein Ort, an dem neue Ideen entstehen und zuverlässig für den Alltag bereitstehen.</p>
-                <a href="https://github.com/Anes-03/HOMELAB" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-            </div>
-
-            <div class="card">
-                <h3><i class="fas fa-book" aria-hidden="true"></i> Escape Room: The Picture of Dorian Gray</h3>
-                <p>Ein Escape Room basierend auf "The Picture of Dorian Gray". Löst Rätsel, die mit der Geschichte des Buches verbunden sind, um zu entkommen.</p>
-                <p><strong>Jahr:</strong> 2022</p>
-                <a href="https://github.com/Anes-03/Escape-Room-The-Picture-of-Dorian-Gray" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-                <a href="https://anes-03.github.io/Escape-Room-The-Picture-of-Dorian-Gray/" target="_blank"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Riddle 1</a>
-                <a href="https://anes-03.github.io/Escape-Room-The-Picture-of-Dorian-Gray/2r2hinweis" target="_blank"><i class="fas fa-puzzle-piece" aria-hidden="true"></i> Riddle 5</a>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>252425 Anwendungen</h2>
-        <div class="cards-container">
-            <div class="card">
-                <h3>Markdown WebEditor</h3>
-                <span class="badge-compact badge--success">Neu</span>
-                <p>Ein komplett clientseitiger Markdown‑Editor, der offline im Browser läuft – ohne Registrierung und ohne Server. Bietet Live‑Vorschau, Editor/Split/Reader‑Ansicht, Drag & Drop, Import (PDF/DOCX) und Export (HTML/PDF), Themes, Shortcuts sowie optionale KI‑Assistenz über konfigurierbare Anbieter.</p>
-                <a href="https://markdown-webeditor.252425.xyz" target="_blank"><i class="fas fa-external-link-alt"></i> Zur Webseite</a>
-                <a href="https://github.com/Anes-03/Markdown-WebEditor" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-
-            <div class="card card--code-editor">
-                <h3>Code WebEditor</h3>
-                <span class="badge-compact badge--success">Neu</span>
-                <p>Browserbasierter Code-Editor mit Live-Vorschau, Dateiverwaltung und optionalem Gemini-Chat. Startest mit Beispiel- oder leerem Projekt, importierst Dateien oder ganze Ordner (File System Access), speicherst alles lokal im Browser und siehst Logs sofort in der integrierten Konsole – ideal für schnelle HTML/CSS/JS-Prototypen ohne Dev-Server.</p>
-                <div class="button-row">
-                    <a href="https://code-webeditor.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
-                    <a href="https://github.com/Anes-03/Code-WebEditor" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-                </div>
-            </div>
-
-            <div class="card card--menupy">
-                <h3>MenuPy</h3>
-                <p>MenuPy ist eine schlanke macOS Menüleisten-App, um Python-Skripte schnell und ohne Terminal auszuführen.</p>
-                <div class="button-row">
-                    <a href="https://menupy.252425.xyz" target="_blank"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Zur Webseite</a>
-                    <a href="https://github.com/Anes-03/MenuPy" target="_blank"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
-                </div>
+                <h3><i class="fas fa-folder-open" aria-hidden="true"></i> Projekte & Anwendungen</h3>
+                <p>Die vollständige Übersicht mit Kategorien wie HOMELAB, Schulprojekten, In Arbeit und Just for fun findest du auf der Projektseite.</p>
+                <a href="projekte.html"><i class="fas fa-arrow-right" aria-hidden="true"></i> Zur Projektseite</a>
             </div>
         </div>
     </section>
