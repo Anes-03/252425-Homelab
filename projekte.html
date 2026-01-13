@@ -59,6 +59,61 @@
             padding: 0 1rem;
             line-height: 1.4;
         }
+        .project-icon-marquee {
+            width: 100%;
+            max-width: none;
+            margin: 0;
+            padding: 0.75rem 0 0.5rem;
+            display: grid;
+            gap: 0.2rem;
+        }
+        .project-icon-marquee .marquee-row {
+            overflow: hidden;
+            width: 100%;
+            padding: 0.35rem 0;
+        }
+        .project-icon-marquee .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: marquee-scroll var(--marquee-duration, 48s) linear infinite;
+        }
+        .project-icon-marquee .marquee-group {
+            display: flex;
+            align-items: center;
+            gap: 1.1rem;
+            padding-right: 1.1rem;
+        }
+        .project-icon-marquee img {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            object-fit: cover;
+            border: 1px solid var(--border-color);
+            background: var(--card-bg);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-drag: none;
+            user-drag: none;
+        }
+        @media (max-width: 700px) {
+            .project-icon-marquee img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        @keyframes marquee-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .project-icon-marquee .marquee-track {
+                animation: none;
+                transform: translateX(0);
+            }
+        }
         section {
             padding: 1.5rem 1rem;
             max-width: 1200px;
@@ -197,6 +252,12 @@
             margin: 0 auto 0.75rem;
             border-radius: 10px;
             object-fit: cover;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -webkit-user-drag: none;
+            user-drag: none;
         }
         .card-note {
             margin-top: 0.6rem;
@@ -285,6 +346,329 @@
     </button>
 
     <main id="main-content" tabindex="-1">
+        <section class="project-icon-marquee" aria-label="Projekt-Icons im Laufband">
+            <span class="visually-hidden">Laufende Reihe mit Icons von Markdown WebEditor, MenuPy, 252425 HOMELAB und Hacker Adventskalender.</span>
+            <div class="marquee-row" style="--marquee-duration: 52s;">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                    </div>
+                    <div class="marquee-group" aria-hidden="true">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row" style="--marquee-duration: 48s;">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                    </div>
+                    <div class="marquee-group" aria-hidden="true">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row" style="--marquee-duration: 56s;">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                    </div>
+                    <div class="marquee-group" aria-hidden="true">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row" style="--marquee-duration: 50s;">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                    </div>
+                    <div class="marquee-group" aria-hidden="true">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <div class="marquee-row" style="--marquee-duration: 54s;">
+                <div class="marquee-track">
+                    <div class="marquee-group">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                    </div>
+                    <div class="marquee-group" aria-hidden="true">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon MenuPy (Logo).png" alt="" loading="lazy">
+                        <img src="App Icon Markdown Webeditor (Logo).png" alt="" loading="lazy">
+                        <img src="logo.jpeg" alt="" loading="lazy">
+                        <img src="App Icon Hacker Adventskalender 2025 (Logo).png" alt="" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
         <header>
             <h1>Projekte</h1>
             <p>Meine Projekte sind hier gebündelt und nach Fokus sortiert: HOMELAB, Schulprojekte, In Arbeit und Just for fun.</p>

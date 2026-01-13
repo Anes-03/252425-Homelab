@@ -179,6 +179,9 @@
 
         function handleOpen(event) {
             event.preventDefault();
+            if (overlay.classList.contains('active')) {
+                return;
+            }
             loadSearchIndex().then(() => {
                 openOverlay(overlay, toggleButton, input);
             });
@@ -190,6 +193,10 @@
         }
 
         toggleButton.addEventListener('click', handleOpen);
+        document.querySelectorAll('[data-search-trigger]').forEach(trigger => {
+            trigger.addEventListener('click', handleOpen);
+            trigger.addEventListener('focus', handleOpen);
+        });
         closeButton.addEventListener('click', handleClose);
 
         overlay.addEventListener('click', event => {

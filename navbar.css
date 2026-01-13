@@ -258,6 +258,8 @@
 .search-overlay {
     position: fixed;
     inset: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
     display: none;
@@ -277,6 +279,7 @@
     border-radius: 18px;
     border: 1px solid var(--border-color);
     box-shadow:
+        0 0 32px rgba(0, 0, 0, 0.35),
         0 24px 48px rgba(0, 0, 0, 0.35),
         0 12px 24px rgba(0, 0, 0, 0.25);
     padding: 1.5rem;
